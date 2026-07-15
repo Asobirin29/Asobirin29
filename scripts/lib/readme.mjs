@@ -93,8 +93,8 @@ function renderStats(username, palette) {
   
   const colors = themes[palette] || themes.signal;
   
-  const darkStatsUrl = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&bg_color=${colors.dark.bg}&title_color=${colors.dark.title}&text_color=${colors.dark.text}&icon_color=${colors.dark.icon}&hide_border=true`;
-  const lightStatsUrl = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&bg_color=${colors.light.bg}&title_color=${colors.light.title}&text_color=${colors.light.text}&icon_color=${colors.light.icon}&hide_border=true`;
+  const darkStatsUrl = `https://github-stats-extended.vercel.app/api?username=${username}&show_icons=true&bg_color=${colors.dark.bg}&title_color=${colors.dark.title}&text_color=${colors.dark.text}&icon_color=${colors.dark.icon}&hide_border=true`;
+  const lightStatsUrl = `https://github-stats-extended.vercel.app/api?username=${username}&show_icons=true&bg_color=${colors.light.bg}&title_color=${colors.light.title}&text_color=${colors.light.text}&icon_color=${colors.light.icon}&hide_border=true`;
   
   const darkStreakUrl = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&background=${colors.dark.bg}&ring=${colors.dark.ring}&fire=${colors.dark.fire}&currStreakNum=${colors.dark.text}&sideNums=64748b&sideLabels=${colors.dark.text}&dates=64748b&hide_border=true`;
   const lightStreakUrl = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&background=${colors.light.bg}&ring=${colors.light.ring}&fire=${colors.light.fire}&currStreakNum=${colors.light.text}&sideNums=64748b&sideLabels=${colors.light.text}&dates=64748b&hide_border=true`;

@@ -54,9 +54,9 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=020617&title_color=22d3ee&text_color=e5e7eb&icon_color=38bdf8&hide_border=true">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=f8fbff&title_color=0891b2&text_color=172554&icon_color=2563eb&hide_border=true">
-    <img src="https://github-readme-stats.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=020617&title_color=22d3ee&text_color=e5e7eb&icon_color=38bdf8&hide_border=true" alt="GitHub Stats" width="49%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=020617&title_color=22d3ee&text_color=e5e7eb&icon_color=38bdf8&hide_border=true">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=f8fbff&title_color=0891b2&text_color=172554&icon_color=2563eb&hide_border=true">
+    <img src="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=020617&title_color=22d3ee&text_color=e5e7eb&icon_color=38bdf8&hide_border=true" alt="GitHub Stats" width="49%">
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=020617&ring=22d3ee&fire=7c3aed&currStreakNum=e5e7eb&sideNums=64748b&sideLabels=e5e7eb&dates=64748b&hide_border=true">
