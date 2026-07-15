@@ -1,0 +1,62 @@
+{
+  "$schema": "../profile.schema.json",
+  "profile": {
+    "name": "Your Name",
+    "username": "yourusername",
+    "headline": "Your Professional Headline",
+    "affiliation": "Your Affiliation",
+    "location": "Your Location",
+    "status": "Building / Shipping",
+    "about": [
+      "Explain what you explore, build, or research in one or two clear sentences.",
+      "Highlight your key interests and the focus of your work."
+    ]
+  },
+  "research": {
+    "primary": "Your Primary Focus",
+    "direction": "Your Professional Direction",
+    "themes": "Theme A / Theme B / Theme C",
+    "narrative": "A concise narrative about your professional goals, interests, and how you approach solving problems."
+  },
+  "focus": [
+    {
+      "name": "Focus Area One",
+      "description": "Describe your primary focus and interest area in a short sentence."
+    },
+    {
+      "name": "Focus Area Two",
+      "description": "Describe your secondary focus and interest area."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project One",
+      "url": "https://github.com/yourusername/project-one",
+      "homepage": "",
+      "focus": "Primary project focus",
+      "summary": "A concise explanation of what the project does and why it matters.",
+      "heroLabel": "Active project"
+    },
+    {
+      "name": "Project Two",
+      "url": "https://github.com/yourusername/project-two",
+      "homepage": "",
+      "focus": "Secondary project focus",
+      "summary": "A second project that supports your professional direction.",
+      "heroLabel": "Supporting tool"
+    }
+  ],
+  "techStack": ["JavaScript", "TypeScript", "Node.js", "Python", "React"],
+  "links": [
+    {
+      "label": "GitHub",
+      "value": "yourusername",
+      "url": "https://github.com/yourusername",
+      "logo": "github",
+      "color": "0B1220"
+    }
+  ],
+  "activity": { "enabled": true, "limit": 6 },
+  "appearance": { "palette": "signal" },
+  "footer": "Building thoughtful systems and sharing what works."
+}

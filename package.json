@@ -12,7 +12,6 @@
     "generate": "node scripts/generate.mjs",
     "generate:hero": "node scripts/generate-hero.mjs",
     "generate:readme": "node scripts/generate-readme.mjs",
-    "generate:demo": "node scripts/generate-demo.mjs",
     "activity": "node scripts/update-activity.mjs",
     "validate": "node scripts/validate.mjs",
     "check": "npm run validate"
