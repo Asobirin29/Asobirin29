@@ -75,6 +75,9 @@
   "joke": {
     "enabled": true
   },
+  "pacman": {
+    "enabled": true
+  },
   "skillsRadar": {
     "enabled": true,
     "skills": {

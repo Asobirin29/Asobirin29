@@ -81,6 +81,7 @@ export function validateConfig(config) {
   assert(["signal", "ocean", "solar"].includes(config.appearance?.palette), "appearance.palette must be signal, ocean, or solar.");
 
   assert(config.joke && typeof config.joke.enabled === "boolean", "joke.enabled must be true or false.");
+  assert(config.pacman && typeof config.pacman.enabled === "boolean", "pacman.enabled must be true or false.");
   assert(config.musicVisualizer && typeof config.musicVisualizer.enabled === "boolean", "musicVisualizer.enabled must be true or false.");
   assert(config.skillsRadar && typeof config.skillsRadar.enabled === "boolean", "skillsRadar.enabled must be true or false.");
   if (config.skillsRadar.enabled) {

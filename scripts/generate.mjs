@@ -6,6 +6,7 @@ import { generateHeroAssets } from "./lib/hero.mjs";
 import { generateProfileReadme } from "./lib/readme.mjs";
 import { generateRadarAssets } from "./lib/radar.mjs";
 import { generateVisualizerAssets } from "./lib/visualizer.mjs";
+import { generatePacmanAssets } from "./lib/pacman.mjs";
 
 const source = readFlag("--source");
 if (!source) {
@@ -25,6 +26,10 @@ try {
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
   });
   await generateVisualizerAssets({
+    config,
+    outputDirectory: resolve(repositoryRoot, "assets/visuals")
+  });
+  await generatePacmanAssets({
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
   });

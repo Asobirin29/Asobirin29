@@ -30,6 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Update developer joke
+        run: npm run joke
+
       - name: Commit changes
         run: |
           if git diff --quiet README.md; then

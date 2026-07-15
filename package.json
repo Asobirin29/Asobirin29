@@ -13,6 +13,7 @@
     "generate:hero": "node scripts/generate-hero.mjs",
     "generate:readme": "node scripts/generate-readme.mjs",
     "activity": "node scripts/update-activity.mjs",
+    "joke": "node scripts/update-joke.mjs",
     "validate": "node scripts/validate.mjs",
     "check": "npm run validate"
   },
