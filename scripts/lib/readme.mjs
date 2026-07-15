@@ -215,9 +215,9 @@ ${statsSection}
 ## GitHub Contributions
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/snake/github-contribution-grid-snake.svg">
-  <img alt="GitHub Snake" src="./assets/snake/github-contribution-grid-snake.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg">
+  <img alt="Pacman Contribution Graph" src="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg" width="100%">
 </picture>
 ${activitySection}${jokeSection}
 ---
