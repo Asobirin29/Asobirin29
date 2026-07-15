@@ -42,6 +42,14 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 
 `PHP` · `JavaScript` · `Node.js` · `TypeScript` · `Python` · `React` · `MongoDB`
 
+## GitHub Contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/snake/github-contribution-grid-snake.svg">
+  <img alt="GitHub Snake" src="./assets/snake/github-contribution-grid-snake.svg" width="100%">
+</picture>
+
 ## Recent Activity
 
 <!-- AUTO:ACTIVITY:START -->

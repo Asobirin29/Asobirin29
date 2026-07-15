@@ -99,6 +99,14 @@ ${config.research.narrative}
 ## Tech Stack
 
 ${techStack}
+
+## GitHub Contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/snake/github-contribution-grid-snake.svg">
+  <img alt="GitHub Snake" src="./assets/snake/github-contribution-grid-snake.svg" width="100%">
+</picture>
 ${activitySection}
 ---
 

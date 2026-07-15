@@ -1,0 +1,41 @@
+name: Generate Snake
+
+on:
+  schedule:
+    # Run once a day at midnight
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/snake/github-contribution-grid-snake.svg
+            assets/snake/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Commit & Push
+        run: |
+          if git diff --quiet assets/snake/; then
+            echo "No snake changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/snake/
+          git commit -m "chore: update snake contribution graph"
+          git push
