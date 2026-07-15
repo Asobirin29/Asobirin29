@@ -3,7 +3,7 @@
   "title": "GitHub Profile Agent Console Configuration",
   "type": "object",
   "additionalProperties": false,
-  "required": ["profile", "research", "focus", "projects", "techStack", "links", "activity", "appearance", "footer"],
+  "required": ["profile", "research", "focus", "projects", "techStack", "links", "activity", "appearance", "footer", "joke", "skillsRadar", "musicVisualizer"],
   "properties": {
     "$schema": { "type": "string" },
     "profile": {
@@ -106,6 +106,38 @@
       "required": ["palette"],
       "properties": {
         "palette": { "enum": ["signal", "ocean", "solar"] }
+      }
+    },
+    "joke": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" }
+      }
+    },
+    "skillsRadar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "skills"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "skills": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    "musicVisualizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" }
       }
     },
     "footer": { "type": "string", "minLength": 4, "maxLength": 120 }

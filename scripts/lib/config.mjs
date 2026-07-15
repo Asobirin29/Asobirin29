@@ -79,6 +79,18 @@ export function validateConfig(config) {
   assert(config.activity && typeof config.activity.enabled === "boolean", "activity.enabled must be true or false.");
   assert(Number.isInteger(config.activity.limit) && config.activity.limit >= 1 && config.activity.limit <= 10, "activity.limit must be between 1 and 10.");
   assert(["signal", "ocean", "solar"].includes(config.appearance?.palette), "appearance.palette must be signal, ocean, or solar.");
+
+  assert(config.joke && typeof config.joke.enabled === "boolean", "joke.enabled must be true or false.");
+  assert(config.musicVisualizer && typeof config.musicVisualizer.enabled === "boolean", "musicVisualizer.enabled must be true or false.");
+  assert(config.skillsRadar && typeof config.skillsRadar.enabled === "boolean", "skillsRadar.enabled must be true or false.");
+  if (config.skillsRadar.enabled) {
+    assert(config.skillsRadar.skills && typeof config.skillsRadar.skills === "object" && !Array.isArray(config.skillsRadar.skills), "skillsRadar.skills must be an object.");
+    Object.entries(config.skillsRadar.skills).forEach(([skill, value]) => {
+      assert(typeof skill === "string" && skill.length > 0, "skillsRadar.skills keys must be non-empty strings.");
+      assert(Number.isInteger(value) && value >= 0 && value <= 100, `skillsRadar.skills["${skill}"] must be an integer between 0 and 100.`);
+    });
+  }
+
   assertText(config.footer, "footer", 120);
 
   return config;

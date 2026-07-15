@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 import { loadConfig, readFlag, repositoryRoot } from "./lib/config.mjs";
 import { generateHeroAssets } from "./lib/hero.mjs";
 import { generateProfileReadme } from "./lib/readme.mjs";
+import { generateRadarAssets } from "./lib/radar.mjs";
+import { generateVisualizerAssets } from "./lib/visualizer.mjs";
 
 const source = readFlag("--source");
 if (!source) {
@@ -17,6 +19,14 @@ try {
     config,
     sourcePath: resolve(source),
     outputDirectory: resolve(repositoryRoot, "assets/hero")
+  });
+  await generateRadarAssets({
+    config,
+    outputDirectory: resolve(repositoryRoot, "assets/visuals")
+  });
+  await generateVisualizerAssets({
+    config,
+    outputDirectory: resolve(repositoryRoot, "assets/visuals")
   });
   await generateProfileReadme({ config, manifest, readmePath: resolve(repositoryRoot, "README.md") });
   console.log(`Profile generated successfully (asset version ${manifest.version}).`);

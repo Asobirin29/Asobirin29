@@ -6,7 +6,7 @@ import { clamp, escapeXml } from "./xml.mjs";
 
 const GENERATOR_VERSION = "agent-console-v1";
 
-const paletteDefinitions = {
+export const paletteDefinitions = {
   signal: {
     dark: { backgroundStart: "#020617", backgroundEnd: "#11152F", panel: "#07111F", primary: "#E5E7EB", muted: "#64748B", cyan: "#22D3EE", blue: "#38BDF8", violet: "#7C3AED", green: "#10B981", red: "#F87171", scanBlend: "screen" },
     light: { backgroundStart: "#F8FBFF", backgroundEnd: "#F5F3FF", panel: "#FFFFFF", primary: "#172554", muted: "#64748B", cyan: "#0891B2", blue: "#2563EB", violet: "#6D28D9", green: "#047857", red: "#DC2626", scanBlend: "multiply" }
@@ -247,13 +247,22 @@ function createHeroSvg(config, colors, size, portrait) {
     .system-section, .system-footer, .system-row { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize}px; }
     .system-section, .system-key { font-weight: 700; }
     text, tspan { white-space: pre; }
+    @keyframes glitch {
+      0% { text-shadow: 0.5px 0 0 ${colors.red}, -0.5px 0 0 ${colors.cyan}; opacity: 0.95; }
+      2% { text-shadow: 1.5px 0.5px 0 ${colors.red}, -1.5px -0.5px 0 ${colors.cyan}; opacity: 0.85; }
+      4% { text-shadow: -1.5px 1px 0 ${colors.red}, 1.5px -1px 0 ${colors.cyan}; opacity: 0.95; }
+      6% { text-shadow: 0.5px -0.5px 0 ${colors.red}, -0.5px 0.5px 0 ${colors.cyan}; opacity: 1; }
+      8% { text-shadow: 0 0 0 ${colors.red}, 0 0 0 ${colors.cyan}; }
+      100% { text-shadow: 0 0 0 ${colors.red}, 0 0 0 ${colors.cyan}; }
+    }
+    .glitch { animation: glitch 4s infinite steps(2); }
   </style>
 </defs>
 <rect width="${layout.width}" height="${layout.height}" rx="${layout.outerRadius}" fill="url(#background)"/>
 <rect width="${layout.width}" height="${layout.height}" rx="${layout.outerRadius}" fill="url(#scanlines)"/>
 <rect x="${titlebar.x}" y="${titlebar.y}" width="${titlebar.width}" height="${titlebar.height}" rx="${titlebar.radius}" fill="${colors.panel}" fill-opacity="0.84"/>
 <circle cx="${titlebar.x + 21}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#EF4444"/><circle cx="${titlebar.x + 39}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#F59E0B"/><circle cx="${titlebar.x + 57}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.green}"/>
-<text x="${titleCenter}" y="${titlebar.y + titlebar.height / 2 + 5}" text-anchor="middle" class="terminal-label">${escapeXml(terminalUser)}@profile ~ % ./profile --live</text>
+<text x="${titleCenter}" y="${titlebar.y + titlebar.height / 2 + 5}" text-anchor="middle" class="terminal-label glitch">${escapeXml(terminalUser)}@profile ~ % ./profile --live</text>
 ${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r="4" fill="${colors.red}"><animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/></circle><text x="${liveX + 10}" y="${titlebar.y + titlebar.height / 2 + 4}" class="live-label">SCANNING</text>` : ""}
 <rect x="${visual.x}" y="${visual.y}" width="${visual.width}" height="${visual.height}" rx="${visual.radius}" fill="${colors.panel}" fill-opacity="0.38" stroke="url(#border)" stroke-opacity="0.42"/>
 <rect x="${info.x}" y="${info.y}" width="${info.width}" height="${info.height}" rx="${info.radius}" fill="${colors.panel}" fill-opacity="0.42" stroke="url(#border)" stroke-opacity="0.42"/>

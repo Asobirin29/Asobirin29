@@ -72,6 +72,23 @@
     "enabled": true,
     "limit": 6
   },
+  "joke": {
+    "enabled": true
+  },
+  "skillsRadar": {
+    "enabled": true,
+    "skills": {
+      "PHP": 80,
+      "JavaScript": 90,
+      "Node.js": 85,
+      "TypeScript": 85,
+      "Python": 75,
+      "React": 80
+    }
+  },
+  "musicVisualizer": {
+    "enabled": true
+  },
   "appearance": {
     "palette": "signal"
   },
