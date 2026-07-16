@@ -34,20 +34,52 @@
   ],
   "projects": [
     {
-      "name": "Project One",
-      "url": "https://github.com/yourusername/project-one",
+      "name": "ALISA",
+      "url": "https://github.com/Asobirin29/ALISA",
       "homepage": "",
-      "focus": "Primary project focus",
-      "summary": "A concise explanation of what the project does and why it matters.",
-      "heroLabel": "Primary build"
+      "focus": "IT Helpdesk & Ticketing",
+      "summary": "Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL.",
+      "heroLabel": "IT Support System"
     },
     {
-      "name": "Project Two",
-      "url": "https://github.com/yourusername/project-two",
+      "name": "Finvas",
+      "url": "https://github.com/Asobirin29/Finvas",
       "homepage": "",
-      "focus": "Secondary project focus",
-      "summary": "A second project that supports the professional direction of this profile.",
-      "heroLabel": "Active system"
+      "focus": "Finance & Invoicing",
+      "summary": "Web-based billing and bookkeeping application with virtual account payments integration, automated invoice generation, and financial reporting.",
+      "heroLabel": "Financial System"
+    },
+    {
+      "name": "LSCS",
+      "url": "https://github.com/Asobirin29/Lscs",
+      "homepage": "",
+      "focus": "School Portal & SIS",
+      "summary": "Comprehensive school portal and Student Information System with enrollment, tuition verification, parent/teacher portals, and custom QR ID card generator.",
+      "heroLabel": "EdTech Platform"
+    },
+    {
+      "name": "Perjakin",
+      "url": "https://github.com/Asobirin29/perjakin",
+      "homepage": "",
+      "focus": "Performance Monitoring",
+      "summary": "Administrative application for government agencies to document performance agreements (KPIs) and monitor monthly or quarterly achievements.",
+      "heroLabel": "GovTech Monitor"
+    },
+    {
+      "name": "Selport",
+      "url": "https://github.com/Asobirin29/selport",
+      "homepage": "",
+      "focus": "Laboratory Customer Portal",
+      "summary": "Laboratory portal for calibration & certification service requests. Handles service status tracking, payment commitments, and PDF certificate delivery.",
+      "heroLabel": "Service Operations"
+    },
+    {
+      "name": "SIPEMBANTU",
+      "url": "https://github.com/Asobirin29/SIPEMBANTU",
+      "homepage": "",
+      "focus": "Domestic Helper Agency",
+      "summary": "Domestic helper agency directory & placement tracker. Provides helper matchmaking, vacancy listings, placement tracking, and OTP verification APIs.",
+      "heroLabel": "Agency Marketplace"
     }
   ],
   "techStack": [

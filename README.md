@@ -31,8 +31,12 @@ My work combines technical exploration with a builder mindset: understand the pr
 
 | Project | Focus | Why it matters |
 | --- | --- | --- |
-| [**Project One**](https://github.com/yourusername/project-one) | Primary project focus | A concise explanation of what the project does and why it matters. |
-| [**Project Two**](https://github.com/yourusername/project-two) | Secondary project focus | A second project that supports the professional direction of this profile. |
+| [**ALISA**](https://github.com/Asobirin29/ALISA) | IT Helpdesk & Ticketing | Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL. |
+| [**Finvas**](https://github.com/Asobirin29/Finvas) | Finance & Invoicing | Web-based billing and bookkeeping application with virtual account payments integration, automated invoice generation, and financial reporting. |
+| [**LSCS**](https://github.com/Asobirin29/Lscs) | School Portal & SIS | Comprehensive school portal and Student Information System with enrollment, tuition verification, parent/teacher portals, and custom QR ID card generator. |
+| [**Perjakin**](https://github.com/Asobirin29/perjakin) | Performance Monitoring | Administrative application for government agencies to document performance agreements (KPIs) and monitor monthly or quarterly achievements. |
+| [**Selport**](https://github.com/Asobirin29/selport) | Laboratory Customer Portal | Laboratory portal for calibration & certification service requests. Handles service status tracking, payment commitments, and PDF certificate delivery. |
+| [**SIPEMBANTU**](https://github.com/Asobirin29/SIPEMBANTU) | Domestic Helper Agency | Domestic helper agency directory & placement tracker. Provides helper matchmaking, vacancy listings, placement tracking, and OTP verification APIs. |
 
 ## Research Direction
 
