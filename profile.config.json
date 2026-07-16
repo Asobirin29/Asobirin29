@@ -37,7 +37,7 @@
       "name": "ALISA",
       "url": "https://github.com/Asobirin29/ALISA",
       "homepage": "",
-      "focus": "IT Helpdesk & Ticketing",
+      "focus": "IT Helpdesk",
       "summary": "Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL.",
       "heroLabel": "IT Support System"
     },

@@ -55,7 +55,7 @@ const layouts = {
 function buildProfileLines(config) {
   const lines = [
     { type: "header", value: `@${config.profile.username}` },
-    { type: "row", key: "Subject", value: config.profile.name },
+    { type: "row", key: "Name", value: config.profile.name },
     { type: "row", key: "Role", value: config.profile.headline },
     { type: "row", key: "Affiliation", value: config.profile.affiliation },
     { type: "row", key: "Base", value: config.profile.location },
