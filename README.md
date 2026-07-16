@@ -31,7 +31,7 @@ My work combines technical exploration with a builder mindset: understand the pr
 
 | Project | Focus | Why it matters |
 | --- | --- | --- |
-| [**ALISA**](https://github.com/Asobirin29/ALISA) | IT Helpdesk & Ticketing | Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL. |
+| [**ALISA**](https://github.com/Asobirin29/ALISA) | IT Helpdesk  | Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL. |
 | [**Finvas**](https://github.com/Asobirin29/Finvas) | Finance & Invoicing | Web-based billing and bookkeeping application with virtual account payments integration, automated invoice generation, and financial reporting. |
 | [**LSCS**](https://github.com/Asobirin29/Lscs) | School Portal & SIS | Comprehensive school portal and Student Information System with enrollment, tuition verification, parent/teacher portals, and custom QR ID card generator. |
 | [**Perjakin**](https://github.com/Asobirin29/perjakin) | Performance Monitoring | Administrative application for government agencies to document performance agreements (KPIs) and monitor monthly or quarterly achievements. |
