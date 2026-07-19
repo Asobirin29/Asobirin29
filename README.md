@@ -99,7 +99,7 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Programming is 10% science, 20% ingenuity, and 70% getting the ingenuity to work with the science.
+> Algorithm: A word used by programmers when they don't want to explain how their code works.
 <!-- AUTO:JOKE:END -->
 
 ---
