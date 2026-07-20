@@ -99,7 +99,7 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Algorithm: A word used by programmers when they don't want to explain how their code works.
+> Your momma is so fat, you need to switch to NTFS to store a picture of her.
 <!-- AUTO:JOKE:END -->
 
 ---
