@@ -99,7 +99,12 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Your momma is so fat, you need to switch to NTFS to store a picture of her.
+> "Knock, knock."
+"Who's there?"
+
+[very long pause]
+
+"Java."
 <!-- AUTO:JOKE:END -->
 
 ---
