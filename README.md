@@ -99,12 +99,7 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
+> The generation of random numbers is too important to be left to chance.
 <!-- AUTO:JOKE:END -->
 
 ---
