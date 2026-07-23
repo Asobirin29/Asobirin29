@@ -99,7 +99,8 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> The generation of random numbers is too important to be left to chance.
+> Have a great weekend!
+I hope your code behaves the same on Monday as it did on Friday.
 <!-- AUTO:JOKE:END -->
 
 ---
