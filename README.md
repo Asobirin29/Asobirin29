@@ -100,10 +100,7 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Judge: "I sentence you to the maximum punishment..."
-Me (thinking): "Please be death, please be death..."
-Judge: "Learn Java!"
-Me: "Damn."
+> // This line doesn't actually do anything, but the code stops working when I delete it.
 <!-- AUTO:JOKE:END -->
 
 ---
