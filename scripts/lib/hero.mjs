@@ -16,8 +16,16 @@ export const paletteDefinitions = {
     light: { backgroundStart: "#F4FCFC", backgroundEnd: "#F4F7FF", panel: "#FFFFFF", primary: "#123047", muted: "#64748B", cyan: "#0F766E", blue: "#0284C7", violet: "#4F46E5", green: "#047857", red: "#BE123C", scanBlend: "multiply" }
   },
   solar: {
-    dark: { backgroundStart: "#090D14", backgroundEnd: "#1D1720", panel: "#10141C", primary: "#F3F4F6", muted: "#7C8495", cyan: "#22D3EE", blue: "#60A5FA", violet: "#F59E0B", green: "#34D399", red: "#FB7185", scanBlend: "screen" },
-    light: { backgroundStart: "#FBFCFE", backgroundEnd: "#FFF8ED", panel: "#FFFFFF", primary: "#292524", muted: "#78716C", cyan: "#0891B2", blue: "#2563EB", violet: "#B45309", green: "#047857", red: "#BE123C", scanBlend: "multiply" }
+    dark: { backgroundStart: "#140A04", backgroundEnd: "#281308", panel: "#1F0E06", primary: "#FFF7ED", muted: "#A8A29E", cyan: "#F59E0B", blue: "#F97316", violet: "#E11D48", green: "#10B981", red: "#EF4444", scanBlend: "screen" },
+    light: { backgroundStart: "#FFFBEB", backgroundEnd: "#FEF3C7", panel: "#FFFFFF", primary: "#451A03", muted: "#78350F", cyan: "#D97706", blue: "#EA580C", violet: "#BE123C", green: "#047857", red: "#DC2626", scanBlend: "multiply" }
+  },
+  emerald: {
+    dark: { backgroundStart: "#021A12", backgroundEnd: "#0D281E", panel: "#062319", primary: "#ECFDF5", muted: "#6EE7B7", cyan: "#10B981", blue: "#F59E0B", violet: "#84CC16", green: "#34D399", red: "#F87171", scanBlend: "screen" },
+    light: { backgroundStart: "#F0FDF4", backgroundEnd: "#ECFDF5", panel: "#FFFFFF", primary: "#064E3B", muted: "#047857", cyan: "#059669", blue: "#D97706", violet: "#65A30D", green: "#10B981", red: "#DC2626", scanBlend: "multiply" }
+  },
+  neon: {
+    dark: { backgroundStart: "#16041A", backgroundEnd: "#280A30", panel: "#210829", primary: "#FDF4FF", muted: "#E9D5FF", cyan: "#EC4899", blue: "#F59E0B", violet: "#A855F7", green: "#10B981", red: "#F43F5E", scanBlend: "screen" },
+    light: { backgroundStart: "#FDF4FF", backgroundEnd: "#FAE8FF", panel: "#FFFFFF", primary: "#581C87", muted: "#7E22CE", cyan: "#DB2777", blue: "#D97706", violet: "#9333EA", green: "#047857", red: "#E11D48", scanBlend: "multiply" }
   }
 };
 
@@ -197,12 +205,42 @@ function buildAmbientPortraitLayer(layout, colors, size) {
   return `<g clip-path="url(#portrait-clip)" aria-hidden="true">
   <rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="${clip.height}" fill="url(#portrait-grid)"/>
   <ellipse cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" rx="${(orbitWidth * 0.54).toFixed(1)}" ry="${(orbitHeight * 0.54).toFixed(1)}" fill="url(#portrait-halo)"/>
-  <ellipse cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" rx="${(orbitWidth * 0.5).toFixed(1)}" ry="${(orbitHeight * 0.5).toFixed(1)}" fill="none" stroke="${colors.blue}" stroke-width="1" stroke-dasharray="3 14" opacity="0.13"><animateTransform attributeName="transform" type="rotate" from="0 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" to="360 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" dur="42s" repeatCount="indefinite"/></ellipse>
-  <ellipse cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" rx="${(orbitWidth * 0.4).toFixed(1)}" ry="${(orbitHeight * 0.38).toFixed(1)}" fill="none" stroke="${colors.violet}" stroke-width="1" stroke-dasharray="28 24" opacity="0.1"><animateTransform attributeName="transform" type="rotate" from="360 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" to="0 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" dur="34s" repeatCount="indefinite"/></ellipse>
-  <path d="M ${left} ${top} H ${left + (isDesktop ? 42 : 62)} M ${left} ${top} V ${top + (isDesktop ? 42 : 54)} M ${right} ${bottom} H ${right - (isDesktop ? 42 : 62)} M ${right} ${bottom} V ${bottom - (isDesktop ? 42 : 54)}" fill="none" stroke="${colors.cyan}" stroke-width="1.2" opacity="0.2"/>
-  <path d="M ${left} ${(centerY + 42).toFixed(1)} C ${left + 32} ${(centerY + 8).toFixed(1)}, ${(centerX - orbitWidth * 0.3).toFixed(1)} ${(centerY + 58).toFixed(1)}, ${(centerX - orbitWidth * 0.19).toFixed(1)} ${(centerY + 27).toFixed(1)}" fill="none" stroke="${colors.blue}" opacity="0.12"/>
-  <path d="M ${right} ${(centerY - 52).toFixed(1)} C ${right - 38} ${(centerY - 18).toFixed(1)}, ${(centerX + orbitWidth * 0.31).toFixed(1)} ${(centerY - 70).toFixed(1)}, ${(centerX + orbitWidth * 0.2).toFixed(1)} ${(centerY - 30).toFixed(1)}" fill="none" stroke="${colors.green}" opacity="0.11"/>
-  <g fill="${colors.cyan}"><circle cx="${left}" cy="${top}" r="2.2" opacity="0.42"><animate attributeName="opacity" values="0.2;0.58;0.2" dur="5.6s" repeatCount="indefinite"/></circle><circle cx="${right}" cy="${bottom}" r="2.2" opacity="0.42"><animate attributeName="opacity" values="0.58;0.2;0.58" dur="6.4s" repeatCount="indefinite"/></circle><circle cx="${left + (isDesktop ? 12 : 18)}" cy="${(centerY + 48).toFixed(1)}" r="1.7" opacity="0.32"/><circle cx="${right - (isDesktop ? 10 : 16)}" cy="${(centerY - 58).toFixed(1)}" r="1.7" opacity="0.28"/></g>
+  <ellipse cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" rx="${(orbitWidth * 0.5).toFixed(1)}" ry="${(orbitHeight * 0.5).toFixed(1)}" fill="none" stroke="${colors.blue}" stroke-width="1" stroke-dasharray="3 14" opacity="0.2"><animateTransform attributeName="transform" type="rotate" from="0 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" to="360 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" dur="42s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" rx="${(orbitWidth * 0.4).toFixed(1)}" ry="${(orbitHeight * 0.38).toFixed(1)}" fill="none" stroke="${colors.violet}" stroke-width="1.2" stroke-dasharray="28 24" opacity="0.18"><animateTransform attributeName="transform" type="rotate" from="360 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" to="0 ${centerX.toFixed(1)} ${centerY.toFixed(1)}" dur="34s" repeatCount="indefinite"/></ellipse>
+
+  <!-- Concentric Holographic Pulse Wave Rings -->
+  <circle cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" r="10" fill="none" stroke="${colors.cyan}" stroke-width="1.2" opacity="0">
+    <animate attributeName="r" values="10;${(orbitWidth * 0.52).toFixed(1)}" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.2;0" dur="4.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="${centerX.toFixed(1)}" cy="${centerY.toFixed(1)}" r="10" fill="none" stroke="${colors.green}" stroke-width="1" opacity="0">
+    <animate attributeName="r" values="10;${(orbitWidth * 0.45).toFixed(1)}" dur="4.2s" begin="2.1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.15;0" dur="4.2s" begin="2.1s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Ambient Curves & Corner Brackets -->
+  <path d="M ${left} ${top} H ${left + (isDesktop ? 42 : 62)} M ${left} ${top} V ${top + (isDesktop ? 42 : 54)} M ${right} ${bottom} H ${right - (isDesktop ? 42 : 62)} M ${right} ${bottom} V ${bottom - (isDesktop ? 42 : 54)}" fill="none" stroke="${colors.cyan}" stroke-width="1.5" opacity="0.45"/>
+  <path d="M ${right} ${top} H ${right - (isDesktop ? 30 : 40)} M ${right} ${top} V ${top + (isDesktop ? 30 : 40)} M ${left} ${bottom} H ${left + (isDesktop ? 30 : 40)} M ${left} ${bottom} V ${bottom - (isDesktop ? 30 : 40)}" fill="none" stroke="${colors.violet}" stroke-width="1.2" opacity="0.35"/>
+  <path d="M ${left} ${(centerY + 42).toFixed(1)} C ${left + 32} ${(centerY + 8).toFixed(1)}, ${(centerX - orbitWidth * 0.3).toFixed(1)} ${(centerY + 58).toFixed(1)}, ${(centerX - orbitWidth * 0.19).toFixed(1)} ${(centerY + 27).toFixed(1)}" fill="none" stroke="${colors.blue}" opacity="0.2"/>
+  <path d="M ${right} ${(centerY - 52).toFixed(1)} C ${right - 38} ${(centerY - 18).toFixed(1)}, ${(centerX + orbitWidth * 0.31).toFixed(1)} ${(centerY - 70).toFixed(1)}, ${(centerX + orbitWidth * 0.2).toFixed(1)} ${(centerY - 30).toFixed(1)}" fill="none" stroke="${colors.green}" opacity="0.2"/>
+
+  <!-- Pulsing Telemetry Nodes -->
+  <g fill="${colors.cyan}">
+    <circle cx="${left}" cy="${top}" r="2.8" opacity="0.7"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
+    <circle cx="${right}" cy="${bottom}" r="2.8" opacity="0.7"><animate attributeName="opacity" values="0.85;0.2;0.85" dur="4.2s" repeatCount="indefinite"/></circle>
+    <circle cx="${left + (isDesktop ? 12 : 18)}" cy="${(centerY + 48).toFixed(1)}" r="2" opacity="0.5"><animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="${right - (isDesktop ? 10 : 16)}" cy="${(centerY - 58).toFixed(1)}" r="2" opacity="0.5"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- Dedicated High-Tech Portrait Laser Scan Line -->
+  <g>
+    <line x1="${clip.x}" y1="${clip.y}" x2="${clip.x + clip.width}" y2="${clip.y}" stroke="${colors.cyan}" stroke-width="2.5" opacity="0.85" filter="url(#laser-glow)">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="0 ${clip.height}" dur="3.2s" repeatCount="indefinite"/>
+    </line>
+    <rect x="${clip.x}" y="${clip.y - 15}" width="${clip.width}" height="15" fill="url(#laser-beam)" opacity="0.45">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="0 ${clip.height}" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
 </g>`;
 }
 
@@ -227,35 +265,84 @@ function createHeroSvg(config, colors, size, portrait) {
 <title id="title">${escapeXml(config.profile.name)} - ${escapeXml(config.profile.headline)}</title>
 <desc id="description">An animated profile console with an ASCII portrait, professional focus, featured projects, and public links.</desc>
 <defs>
-  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${colors.backgroundStart}"/><stop offset="1" stop-color="${colors.backgroundEnd}"/></linearGradient>
-  <linearGradient id="ascii-signal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${colors.cyan}"><animate attributeName="stop-color" values="${colors.cyan};${colors.violet};${colors.blue};${colors.cyan}" dur="9s" repeatCount="indefinite"/></stop><stop offset="1" stop-color="${colors.violet}"><animate attributeName="stop-color" values="${colors.violet};${colors.blue};${colors.cyan};${colors.violet}" dur="9s" repeatCount="indefinite"/></stop></linearGradient>
-  <linearGradient id="border" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${colors.violet}"/><stop offset="0.48" stop-color="${colors.cyan}"/><stop offset="1" stop-color="${colors.green}"/></linearGradient>
-  <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${colors.cyan}" stop-opacity="0"/><stop offset="0.5" stop-color="${colors.cyan}" stop-opacity="0.46"/><stop offset="1" stop-color="${colors.violet}" stop-opacity="0"/></linearGradient>
-  <radialGradient id="portrait-halo"><stop offset="0" stop-color="${colors.cyan}" stop-opacity="0.12"/><stop offset="0.48" stop-color="${colors.blue}" stop-opacity="0.055"/><stop offset="1" stop-color="${colors.violet}" stop-opacity="0"/></radialGradient>
-  <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="${colors.cyan}" opacity="0.052"/></pattern>
-  <pattern id="portrait-grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M 44 0 H 0 V 44" fill="none" stroke="${colors.blue}" stroke-width="0.65" opacity="0.085"/><circle cx="0" cy="0" r="1.2" fill="${colors.cyan}" opacity="0.13"/></pattern>
-  <clipPath id="portrait-clip"><rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="${clip.height}" rx="${clip.radius}"/></clipPath>
-  <mask id="portrait-reveal"><rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="0" rx="${clip.radius}" fill="white"><animate attributeName="height" from="0" to="${clip.height}" dur="2.1s" begin="0.12s" fill="freeze"/></rect></mask>
+  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="${colors.backgroundStart}">
+      <animate attributeName="stop-color" values="${colors.backgroundStart};${colors.backgroundEnd};${colors.backgroundStart}" dur="15s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="1" stop-color="${colors.backgroundEnd}">
+      <animate attributeName="stop-color" values="${colors.backgroundEnd};${colors.backgroundStart};${colors.backgroundEnd}" dur="15s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+  <linearGradient id="ascii-signal" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="${colors.cyan}">
+      <animate attributeName="stop-color" values="${colors.cyan};${colors.green};${colors.violet};${colors.cyan}" dur="8s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="1" stop-color="${colors.violet}">
+      <animate attributeName="stop-color" values="${colors.violet};${colors.blue};${colors.green};${colors.violet}" dur="8s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+  <linearGradient id="border" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="${colors.violet}"/>
+    <stop offset="0.48" stop-color="${colors.cyan}"/>
+    <stop offset="1" stop-color="${colors.green}"/>
+  </linearGradient>
+  <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="${colors.cyan}" stop-opacity="0"/>
+    <stop offset="0.5" stop-color="${colors.cyan}" stop-opacity="0.46"/>
+    <stop offset="1" stop-color="${colors.violet}" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="laser-beam" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="${colors.cyan}" stop-opacity="0"/>
+    <stop offset="1" stop-color="${colors.cyan}" stop-opacity="0.4"/>
+  </linearGradient>
+  <radialGradient id="portrait-halo">
+    <stop offset="0" stop-color="${colors.cyan}" stop-opacity="0.16"/>
+    <stop offset="0.48" stop-color="${colors.blue}" stop-opacity="0.08"/>
+    <stop offset="1" stop-color="${colors.violet}" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="laser-glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+    <rect width="4" height="1" fill="${colors.cyan}" opacity="0.052"/>
+  </pattern>
+  <pattern id="portrait-grid" width="44" height="44" patternUnits="userSpaceOnUse">
+    <path d="M 44 0 H 0 V 44" fill="none" stroke="${colors.blue}" stroke-width="0.65" opacity="0.1"/>
+    <circle cx="0" cy="0" r="1.2" fill="${colors.cyan}" opacity="0.18"/>
+  </pattern>
+  <clipPath id="portrait-clip">
+    <rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="${clip.height}" rx="${clip.radius}"/>
+  </clipPath>
+  <mask id="portrait-reveal">
+    <rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="0" rx="${clip.radius}" fill="white">
+      <animate attributeName="height" from="0" to="${clip.height}" dur="2.1s" begin="0.12s" fill="freeze"/>
+    </rect>
+  </mask>
   ${system.clips}
   <style>
     .mono { font-family: 'Courier New', Consolas, monospace; }
     .ascii { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.portrait.fontSize}px; letter-spacing: -0.15px; fill: url(#ascii-signal); }
-    .panel-title { font-family: 'Courier New', Consolas, monospace; font-size: ${isDesktop ? 11 : 12}px; letter-spacing: 2px; fill: ${colors.blue}; opacity: 0.78; }
+    .panel-title { font-family: 'Courier New', Consolas, monospace; font-size: ${isDesktop ? 11 : 12}px; letter-spacing: 2px; fill: ${colors.cyan}; opacity: 0.88; font-weight: 700; }
     .terminal-label { font-family: 'Courier New', Consolas, monospace; font-size: ${isDesktop ? 12 : 11}px; letter-spacing: 0.5px; fill: ${colors.muted}; }
-    .live-label { font-family: 'Courier New', Consolas, monospace; font-size: 10px; letter-spacing: 1px; fill: ${colors.red}; }
+    .live-label { font-family: 'Courier New', Consolas, monospace; font-size: 10px; letter-spacing: 1px; fill: ${colors.red}; font-weight: 700; }
     .system-head { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize + 2}px; font-weight: 700; }
     .system-section, .system-footer, .system-row { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize}px; }
     .system-section, .system-key { font-weight: 700; }
     text, tspan { white-space: pre; }
     @keyframes glitch {
-      0% { text-shadow: 0.5px 0 0 ${colors.red}, -0.5px 0 0 ${colors.cyan}; opacity: 0.95; }
-      2% { text-shadow: 1.5px 0.5px 0 ${colors.red}, -1.5px -0.5px 0 ${colors.cyan}; opacity: 0.85; }
-      4% { text-shadow: -1.5px 1px 0 ${colors.red}, 1.5px -1px 0 ${colors.cyan}; opacity: 0.95; }
-      6% { text-shadow: 0.5px -0.5px 0 ${colors.red}, -0.5px 0.5px 0 ${colors.cyan}; opacity: 1; }
+      0% { text-shadow: 0.8px 0 0 ${colors.red}, -0.8px 0 0 ${colors.cyan}; opacity: 0.95; }
+      2% { text-shadow: 1.8px 0.5px 0 ${colors.red}, -1.8px -0.5px 0 ${colors.cyan}; opacity: 0.85; }
+      4% { text-shadow: -1.8px 1px 0 ${colors.red}, 1.8px -1px 0 ${colors.cyan}; opacity: 0.95; }
+      6% { text-shadow: 0.8px -0.5px 0 ${colors.red}, -0.8px 0.5px 0 ${colors.cyan}; opacity: 1; }
       8% { text-shadow: 0 0 0 ${colors.red}, 0 0 0 ${colors.cyan}; }
       100% { text-shadow: 0 0 0 ${colors.red}, 0 0 0 ${colors.cyan}; }
     }
+    @keyframes border-dash {
+      to { stroke-dashoffset: -400; }
+    }
     .glitch { animation: glitch 4s infinite steps(2); }
+    .energy-border { stroke-dasharray: 100 300; animation: border-dash 6s linear infinite; }
   </style>
 </defs>
 <rect width="${layout.width}" height="${layout.height}" rx="${layout.outerRadius}" fill="url(#background)"/>
@@ -263,9 +350,11 @@ function createHeroSvg(config, colors, size, portrait) {
 <rect x="${titlebar.x}" y="${titlebar.y}" width="${titlebar.width}" height="${titlebar.height}" rx="${titlebar.radius}" fill="${colors.panel}" fill-opacity="0.84"/>
 <circle cx="${titlebar.x + 21}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#EF4444"/><circle cx="${titlebar.x + 39}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#F59E0B"/><circle cx="${titlebar.x + 57}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.green}"/>
 <text x="${titleCenter}" y="${titlebar.y + titlebar.height / 2 + 5}" text-anchor="middle" class="terminal-label glitch">${escapeXml(terminalUser)}@profile ~ % ./profile --live</text>
-${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r="4" fill="${colors.red}"><animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/></circle><text x="${liveX + 10}" y="${titlebar.y + titlebar.height / 2 + 4}" class="live-label">SCANNING</text>` : ""}
+${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r="4" fill="${colors.red}"><animate attributeName="opacity" values="1;0.2;1" dur="1.1s" repeatCount="indefinite"/></circle><circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r="4" fill="none" stroke="${colors.red}" stroke-width="1.2" opacity="0.8"><animate attributeName="r" values="4;13;16" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.2;0" dur="1.8s" repeatCount="indefinite"/></circle><text x="${liveX + 12}" y="${titlebar.y + titlebar.height / 2 + 4}" class="live-label">SCANNING</text>` : ""}
 <rect x="${visual.x}" y="${visual.y}" width="${visual.width}" height="${visual.height}" rx="${visual.radius}" fill="${colors.panel}" fill-opacity="0.38" stroke="url(#border)" stroke-opacity="0.42"/>
+<rect x="${visual.x}" y="${visual.y}" width="${visual.width}" height="${visual.height}" rx="${visual.radius}" fill="none" stroke="${colors.cyan}" stroke-width="1.5" stroke-opacity="0.6" class="energy-border"/>
 <rect x="${info.x}" y="${info.y}" width="${info.width}" height="${info.height}" rx="${info.radius}" fill="${colors.panel}" fill-opacity="0.42" stroke="url(#border)" stroke-opacity="0.42"/>
+<rect x="${info.x}" y="${info.y}" width="${info.width}" height="${info.height}" rx="${info.radius}" fill="none" stroke="${colors.violet}" stroke-width="1.5" stroke-opacity="0.6" class="energy-border"/>
 <text x="${layout.visualTitle.x}" y="${layout.visualTitle.y}" class="panel-title">VISUAL.MAP / PORTRAIT.SIGNAL</text>
 <text x="${layout.infoTitle.x}" y="${layout.infoTitle.y}" class="panel-title">SYSTEM.INFO / RESEARCH.BUILDER</text>
 ${ambientPortrait}
