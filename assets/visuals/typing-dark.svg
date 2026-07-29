@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120" width="800" height="120">
+  <defs>
+    <linearGradient id="cursor-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <style>
+    .bg { fill: #020617; }
+    .text { fill: #22d3ee; font-family: 'Courier New', monospace; font-size: 18px; font-weight: bold; }
+    .cursor { fill: #22d3ee; }
+    @keyframes typing { 0%, 100% { width: 0; } 50% { width: 100%; } }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    .cursor-line { animation: blink 1s infinite; }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .line1 { animation: fadeIn 0.5s ease forwards; }
+    .line2 { animation: fadeIn 0.5s ease 0.5s forwards; opacity: 0; }
+    .line3 { animation: fadeIn 0.5s ease 1s forwards; opacity: 0; }
+  </style>
+  <rect class="bg" width="800" height="120" rx="8"/>
+  <g transform="translate(20, 35)">
+    <text class="text line1" x="0" y="0"><tspan fill="#64748b">$</tspan> npm run build <tspan class="cursor-line">|</tspan></text>
+    <text class="text line2" x="0" y="30" fill="#10b981">✓ Compiled successfully!</text>
+    <text class="text line3" x="0" y="60" fill="#f59e0b">→ Ready in 1.2s</text>
+  </g>
+</svg>

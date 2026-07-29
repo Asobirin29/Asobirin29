@@ -166,7 +166,19 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
     ? `\n## Daily Developer Joke\n\n${JOKE_START}\n${joke}\n${JOKE_END}\n`
     : "";
     
-  const techStack = config.techStack.map((item) => `\`${item}\``).join(" · ");
+  const techStack = config.techStack.map((tech) => {
+    const iconMap = {
+      "PHP": "https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white",
+      "JavaScript": "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
+      "Node.js": "https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white",
+      "TypeScript": "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white",
+      "Python": "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
+      "React": "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
+      "MongoDB": "https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"
+    };
+    const url = iconMap[tech] || `https://img.shields.io/badge/${encodeURIComponent(tech)}-000000?style=for-the-badge`;
+    return `<img src="${url}" alt="${tech}">`;
+  }).join(" ");
   const about = config.profile.about.join("\n\n");
   const statsSection = renderStats(config.profile.username, config.appearance.palette);
   const visualsSection = renderVisuals(config);
@@ -208,7 +220,25 @@ ${config.research.narrative}
 
 ## Tech Stack
 
+<p align="center">
 ${techStack}
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/typing-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/typing-light.svg">
+    <img alt="Typing Animation" src="./assets/visuals/typing-dark.svg" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/matrix-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/matrix-light.svg">
+    <img alt="Matrix Animation" src="./assets/visuals/matrix-dark.svg" width="100%">
+  </picture>
+</p>
 ${visualsSection}
 ${pacmanSection}
 ${statsSection}

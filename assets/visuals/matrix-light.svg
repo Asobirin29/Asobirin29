@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 100" width="800" height="100">
+  <style>
+    .bg { fill: #f8fbff; }
+    .char { fill: #0891b2; font-family: 'Courier New', monospace; font-size: 12px; }
+    @keyframes fall1 { 0% { transform: translateY(-20px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(20px); opacity: 0; } }
+    @keyframes fall2 { 0% { transform: translateY(-20px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(20px); opacity: 0; } }
+    .col1 { animation: fall1 2s ease-in-out infinite; }
+    .col2 { animation: fall2 2s ease-in-out 0.3s infinite; }
+    .col3 { animation: fall1 2s ease-in-out 0.6s infinite; }
+    .col4 { animation: fall2 2s ease-in-out 0.9s infinite; }
+    .col5 { animation: fall1 2s ease-in-out 1.2s infinite; }
+  </style>
+  <rect class="bg" width="800" height="100"/>
+  <rect x="0" y="0" width="800" height="100" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <text class="char col1" x="50" y="30" opacity="0.8">1</text>
+  <text class="char col2" x="80" y="50" opacity="0.6">0</text>
+  <text class="char col3" x="110" y="70" opacity="0.9">1</text>
+  <text class="char col4" x="140" y="40" opacity="0.7">0</text>
+  <text class="char col5" x="170" y="60" opacity="0.5">1</text>
+  <text class="char col1" x="200" y="25" opacity="0.8">0</text>
+  <text class="char col3" x="230" y="55" opacity="0.6">1</text>
+  <text class="char col2" x="260" y="75" opacity="0.9">0</text>
+  <text class="char col4" x="290" y="35" opacity="0.7">1</text>
+  <text class="char col5" x="320" y="65" opacity="0.5">0</text>
+  <text class="char col1" x="350" y="30" opacity="0.8">1</text>
+  <text class="char col2" x="380" y="50" opacity="0.6">0</text>
+  <text class="char col3" x="410" y="70" opacity="0.9">1</text>
+  <text class="char col4" x="440" y="40" opacity="0.7">0</text>
+  <text class="char col5" x="470" y="60" opacity="0.5">1</text>
+  <text class="char col1" x="500" y="25" opacity="0.8">0</text>
+  <text class="char col3" x="530" y="55" opacity="0.6">1</text>
+  <text class="char col2" x="560" y="75" opacity="0.9">0</text>
+  <text class="char col4" x="590" y="35" opacity="0.7">1</text>
+  <text class="char col5" x="620" y="65" opacity="0.5">0</text>
+  <text class="char col1" x="650" y="30" opacity="0.8">1</text>
+  <text class="char col2" x="680" y="50" opacity="0.6">0</text>
+  <text class="char col3" x="710" y="70" opacity="0.9">1</text>
+  <text class="char col4" x="740" y="40" opacity="0.7">0</text>
+  <text class="char col5" x="770" y="60" opacity="0.5">1</text>
+</svg>

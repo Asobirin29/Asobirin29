@@ -44,7 +44,25 @@ I am interested in systems that can observe state, use tools, evaluate outcomes,
 
 ## Tech Stack
 
-`PHP` · `JavaScript` · `Node.js` · `TypeScript` · `Python` · `React` · `MongoDB`
+<p align="center">
+<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"> <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/typing-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/typing-light.svg">
+    <img alt="Typing Animation" src="./assets/visuals/typing-dark.svg" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/matrix-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/matrix-light.svg">
+    <img alt="Matrix Animation" src="./assets/visuals/matrix-dark.svg" width="100%">
+  </picture>
+</p>
 
 ## Interactive Maps & Status
 
