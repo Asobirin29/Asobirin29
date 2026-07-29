@@ -13,24 +13,22 @@
   <a href="https://github.com/Asobirin29"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Asobirin29-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
-## About Me
+## 👨‍💻 About Me
 
-I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.
+> I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.
+>
+> My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works.
 
-My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works.
+## 🎯 Current Focus
 
-## Current Focus
+- 🔭 **AI Agents** — Autonomous workflows, tool use, evaluation, and reliable agent behavior.
+- 🔭 **Applied AI** — Turning model capabilities into useful and testable software systems.
+- 🔭 **Developer Tools** — Better workflows for building, testing, and operating modern software.
 
-| Area | What I am exploring |
-| --- | --- |
-| **AI Agents** | Autonomous workflows, tool use, evaluation, and reliable agent behavior. |
-| **Applied AI** | Turning model capabilities into useful and testable software systems. |
-| **Developer Tools** | Better workflows for building, testing, and operating modern software. |
+## 🛠️ Featured Work
 
-## Featured Work
-
-| Project | Focus | Why it matters |
-| --- | --- | --- |
+| 🚀 Project | 🎯 Focus | 📝 Why it matters |
+| :--- | :--- | :--- |
 | [**ALISA**](https://github.com/Asobirin29/ALISA) | IT Helpdesk | Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL. |
 | [**Finvas**](https://github.com/Asobirin29/Finvas) | Finance & Invoicing | Web-based billing and bookkeeping application with virtual account payments integration, automated invoice generation, and financial reporting. |
 | [**LSCS**](https://github.com/Asobirin29/Lscs) | School Portal & SIS | Comprehensive school portal and Student Information System with enrollment, tuition verification, parent/teacher portals, and custom QR ID card generator. |
@@ -38,11 +36,11 @@ My work combines technical exploration with a builder mindset: understand the pr
 | [**Selport**](https://github.com/Asobirin29/selport) | Laboratory Customer Portal | Laboratory portal for calibration & certification service requests. Handles service status tracking, payment commitments, and PDF certificate delivery. |
 | [**SIPEMBANTU**](https://github.com/Asobirin29/SIPEMBANTU) | Domestic Helper Agency | Domestic helper agency directory & placement tracker. Provides helper matchmaking, vacancy listings, placement tracking, and OTP verification APIs. |
 
-## Research Direction
+## 🧭 Research Direction
 
-I am interested in systems that can observe state, use tools, evaluate outcomes, and take bounded actions with clear evidence and human oversight.
+> I am interested in systems that can observe state, use tools, evaluate outcomes, and take bounded actions with clear evidence and human oversight.
 
-## Tech Stack
+## 💻 Tech Stack
 
 <p align="center">
 <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"> <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">

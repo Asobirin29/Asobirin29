@@ -23,19 +23,15 @@ function renderLinks(links) {
 }
 
 function renderFocus(focus) {
-  return [
-    "| Area | What I am exploring |",
-    "| --- | --- |",
-    ...focus.map((item) => `| **${escapeCell(item.name)}** | ${escapeCell(item.description)} |`)
-  ].join("\n");
+  return focus.map((item) => `- 🔭 **${escapeCell(item.name)}** — ${escapeCell(item.description)}`).join("\n");
 }
 
 function renderProjects(projects) {
   return [
-    "| Project | Focus | Why it matters |",
-    "| --- | --- | --- |",
+    "| 🚀 Project | 🎯 Focus | 📝 Why it matters |",
+    "| :--- | :--- | :--- |",
     ...projects.map((project) => {
-      const homepage = project.homepage ? ` [Live](${project.homepage})` : "";
+      const homepage = project.homepage ? `<br>🔗 [Live Demo](${project.homepage})` : "";
       return `| [**${escapeCell(project.name)}**](${project.url}) | ${escapeCell(project.focus)} | ${escapeCell(project.summary)}${homepage} |`;
     })
   ].join("\n");
@@ -179,7 +175,7 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
     const url = iconMap[tech] || `https://img.shields.io/badge/${encodeURIComponent(tech)}-000000?style=for-the-badge`;
     return `<img src="${url}" alt="${tech}">`;
   }).join(" ");
-  const about = config.profile.about.join("\n\n");
+  const about = config.profile.about.map(p => `> ${p}`).join("\n>\n");
   const statsSection = renderStats(config.profile.username, config.appearance.palette);
   const visualsSection = renderVisuals(config);
 
@@ -202,23 +198,23 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
 ${renderLinks(config.links)}
 </p>
 
-## About Me
+## 👨‍💻 About Me
 
 ${about}
 
-## Current Focus
+## 🎯 Current Focus
 
 ${renderFocus(config.focus)}
 
-## Featured Work
+## 🛠️ Featured Work
 
 ${renderProjects(config.projects)}
 
-## Research Direction
+## 🧭 Research Direction
 
-${config.research.narrative}
+> ${config.research.narrative.split("\n").join("\n> ")}
 
-## Tech Stack
+## 💻 Tech Stack
 
 <p align="center">
 ${techStack}
