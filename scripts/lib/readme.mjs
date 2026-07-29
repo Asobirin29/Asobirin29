@@ -198,21 +198,11 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
 ${renderLinks(config.links)}
 </p>
 
-## 👨‍💻 About Me
+## 🔗 Project Links
 
-${about}
-
-## 🎯 Current Focus
-
-${renderFocus(config.focus)}
-
-## 🛠️ Featured Work
-
-${renderProjects(config.projects)}
-
-## 🧭 Research Direction
-
-> ${config.research.narrative.split("\n").join("\n> ")}
+<p align="center">
+${config.projects.map(p => `  <a href="${p.url}"><img alt="${p.name}" src="https://img.shields.io/badge/${encodeURIComponent(p.name)}-${encodeURIComponent(p.focus.replaceAll('-', '--').replaceAll(' ', '_'))}-020617?style=for-the-badge"></a>`).join("\n")}
+</p>
 
 ## 💻 Tech Stack
 

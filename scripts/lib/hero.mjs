@@ -4,7 +4,23 @@ import { resolve } from "node:path";
 import sharp from "sharp";
 import { clamp, escapeXml } from "./xml.mjs";
 
-const GENERATOR_VERSION = "agent-console-v1";
+const GENERATOR_VERSION = "agent-console-v2";
+
+function wrapText(text, maxLen) {
+  const words = text.split(" ");
+  const lines = [];
+  let currentLine = "";
+  for (const word of words) {
+    if ((currentLine + word).length > maxLen) {
+      lines.push(currentLine.trim());
+      currentLine = word + " ";
+    } else {
+      currentLine += word + " ";
+    }
+  }
+  if (currentLine) lines.push(currentLine.trim());
+  return lines;
+}
 
 export const paletteDefinitions = {
   signal: {
@@ -32,31 +48,31 @@ export const paletteDefinitions = {
 const layouts = {
   desktop: {
     width: 1180,
-    height: 610,
+    height: 800,
     outerRadius: 18,
     titlebar: { x: 3, y: 3, width: 1174, height: 34, radius: 16 },
-    visualPanel: { x: 14, y: 64, width: 488, height: 468, radius: 14 },
-    infoPanel: { x: 508, y: 48, width: 655, height: 500, radius: 14 },
+    visualPanel: { x: 14, y: 64, width: 488, height: 658, radius: 14 },
+    infoPanel: { x: 508, y: 48, width: 655, height: 690, radius: 14 },
     visualTitle: { x: 30, y: 62 },
     infoTitle: { x: 524, y: 62 },
     portrait: { columns: 96, rows: 64, x: 78, y: 90, lineHeight: 6.65, fontSize: 6.5 },
-    portraitClip: { x: 24, y: 82, width: 470, height: 438, radius: 12 },
+    portraitClip: { x: 24, y: 82, width: 470, height: 628, radius: 12 },
     system: { x: 528, y: 82, width: 620, lineHeight: 21.5, fontSize: 14 },
-    footerY: 585
+    footerY: 775
   },
   mobile: {
     width: 720,
-    height: 1080,
+    height: 1270,
     outerRadius: 22,
     titlebar: { x: 20, y: 20, width: 680, height: 42, radius: 14 },
     visualPanel: { x: 48, y: 94, width: 624, height: 350, radius: 14 },
-    infoPanel: { x: 48, y: 470, width: 624, height: 526, radius: 14 },
+    infoPanel: { x: 48, y: 470, width: 624, height: 716, radius: 14 },
     visualTitle: { x: 66, y: 116 },
     infoTitle: { x: 66, y: 492 },
     portrait: { columns: 84, rows: 54, x: 180, y: 132, lineHeight: 5.7, fontSize: 6.6 },
     portraitClip: { x: 58, y: 122, width: 604, height: 312, radius: 12 },
     system: { x: 72, y: 520, width: 574, lineHeight: 21, fontSize: 13 },
-    footerY: 1045
+    footerY: 1235
   }
 };
 
@@ -69,15 +85,26 @@ function buildProfileLines(config) {
     { type: "row", key: "Base", value: config.profile.location },
     { type: "row", key: "Status", value: config.profile.status },
     { type: "blank" },
+    { type: "section", value: "ABOUT.ME" }
+  ];
+
+  const aboutText = config.profile.about.join(" ");
+  const wrappedAbout = wrapText(aboutText, 54);
+  wrappedAbout.forEach((line) => {
+    lines.push({ type: "text", value: line });
+  });
+
+  lines.push(
+    { type: "blank" },
     { type: "section", value: "RESEARCH.NODE" },
     { type: "row", key: "Primary", value: config.research.primary },
     { type: "row", key: "Direction", value: config.research.direction },
     { type: "row", key: "Themes", value: config.research.themes },
     { type: "blank" },
     { type: "section", value: "BUILD.LOG" }
-  ];
+  );
 
-  config.projects.slice(0, 4).forEach((project) => {
+  config.projects.forEach((project) => {
     lines.push({ type: "row", key: project.name, value: project.heroLabel });
   });
 
@@ -181,6 +208,8 @@ function buildSystemLayer(profileLines, { x, y, width, lineHeight, fontSize }, c
       rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-section" fill="${colors.green}">- ${escapeXml(line.value)} -----------------------------------</text></g>`);
     } else if (line.type === "footer") {
       rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-footer" fill="${colors.blue}">${escapeXml(line.value)}</text></g>`);
+    } else if (line.type === "text") {
+      rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-row"><tspan fill="${colors.muted}">>  </tspan><tspan fill="${colors.primary}">${escapeXml(line.value)}</tspan></text></g>`);
     } else {
       const dots = ".".repeat(Math.max(3, 14 - line.key.length));
       rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-row"><tspan fill="${colors.muted}">. </tspan><tspan class="system-key" fill="${colors.cyan}">${escapeXml(line.key)}</tspan><tspan fill="${colors.muted}">: ${dots} </tspan><tspan fill="${colors.primary}">${escapeXml(line.value)}</tspan></text></g>`);
