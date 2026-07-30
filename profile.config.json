@@ -7,10 +7,25 @@
     "affiliation": "Independent Builder",
     "location": "Indonesia",
     "status": "Learning / Building / Shipping",
+    "education": "University of Indonesia",
     "about": [
       "I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.",
       "My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works."
     ]
+  },
+  "toolchain": {
+    "lang": "Python, TypeScript, PHP",
+    "frontend": "React, TailwindCSS",
+    "backend": "Node.js, Express, F3",
+    "database": "MySQL, MongoDB",
+    "infra": "Docker, GitHub Actions"
+  },
+  "grid": {
+    "mail": "ahmad@example.com",
+    "portfolio": "asobirin.com",
+    "linkedin": "in/asobirin",
+    "github": "Asobirin29",
+    "facebook": "fb.me/asobirin"
   },
   "research": {
     "primary": "AI Agents",

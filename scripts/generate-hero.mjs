@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { resolve } from "node:path";
-import { loadConfig, readFlag, repositoryRoot } from "./lib/config.mjs";
-import { generateHeroAssets } from "./lib/hero.mjs";
+import { execSync } from "node:child_process";
+import { readFlag, repositoryRoot } from "./lib/config.mjs";
 
 const source = readFlag("--source");
 if (!source) {
@@ -11,15 +11,15 @@ if (!source) {
 }
 
 try {
-  const configPath = readFlag("--config");
-  const config = await loadConfig(configPath);
-  const manifest = await generateHeroAssets({
-    config,
-    sourcePath: resolve(source),
-    outputDirectory: resolve(repositoryRoot, "assets/hero")
-  });
-  console.log(`Generated four hero assets (version ${manifest.version}).`);
+  const configPath = readFlag("--config") || resolve(repositoryRoot, "profile.config.json");
+  const outputDir = resolve(repositoryRoot, "assets/hero");
+  
+  const pythonPath = resolve(repositoryRoot, ".venv", "Scripts", "python.exe");
+  const command = `"${pythonPath}" scripts/generate_hero.py --config "${configPath}" --source "${resolve(source)}" --outdir "${outputDir}"`;
+  execSync(command, { stdio: "inherit", cwd: repositoryRoot });
+  
+  console.log(`Generation complete.`);
 } catch (error) {
-  console.error(error.message);
+  console.error("Failed to generate hero assets:", error.message);
   process.exitCode = 1;
 }

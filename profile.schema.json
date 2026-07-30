@@ -3,7 +3,7 @@
   "title": "GitHub Profile Agent Console Configuration",
   "type": "object",
   "additionalProperties": false,
-  "required": ["profile", "research", "focus", "projects", "techStack", "links", "activity", "appearance", "footer", "joke", "skillsRadar", "musicVisualizer"],
+  "required": ["profile", "research", "focus", "projects", "techStack", "links", "activity", "appearance", "footer", "joke", "skillsRadar", "musicVisualizer", "toolchain", "grid"],
   "properties": {
     "$schema": { "type": "string" },
     "profile": {
@@ -17,12 +17,35 @@
         "affiliation": { "type": "string", "minLength": 2, "maxLength": 40 },
         "location": { "type": "string", "minLength": 2, "maxLength": 32 },
         "status": { "type": "string", "minLength": 2, "maxLength": 42 },
+        "education": { "type": "string", "maxLength": 60 },
         "about": {
           "type": "array",
           "minItems": 1,
           "maxItems": 3,
           "items": { "type": "string", "minLength": 20, "maxLength": 320 }
         }
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": { "type": "string", "maxLength": 60 },
+        "frontend": { "type": "string", "maxLength": 60 },
+        "backend": { "type": "string", "maxLength": 60 },
+        "database": { "type": "string", "maxLength": 60 },
+        "infra": { "type": "string", "maxLength": 60 }
+      }
+    },
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mail": { "type": "string", "maxLength": 60 },
+        "portfolio": { "type": "string", "maxLength": 60 },
+        "linkedin": { "type": "string", "maxLength": 60 },
+        "github": { "type": "string", "maxLength": 60 },
+        "facebook": { "type": "string", "maxLength": 60 }
       }
     },
     "research": {
