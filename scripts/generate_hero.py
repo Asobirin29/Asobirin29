@@ -214,12 +214,19 @@ def generate_svg(config, dots, palette, mode):
     svg.append(f'<g font-family="monospace">')
     svg.append(f'<text x="470" y="80" font-size="10" letter-spacing="3" fill="#475569">SYSTEM.INFO</text>')
     
+    import html
+    
+    def safe_text(val):
+        return html.escape(str(val))
+
     def add_animated_row(label, value, is_header=False):
         nonlocal y_pos, delay_start
+        safe_label = safe_text(label)
+        safe_val = safe_text(value)
         if is_header:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["muted"]}">- {label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">---------------------------------------------------------------------</tspan></text></g>')
+            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["muted"]}">- {safe_label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">---------------------------------------------------------------------</tspan></text></g>')
         else:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["cyan"]}">{label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">..........................................................</tspan><tspan fill="{palette["primary"]}" font-weight="600"> {value}</tspan></text></g>')
+            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["cyan"]}">{safe_label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">..........................................................</tspan><tspan fill="{palette["primary"]}" font-weight="600"> {safe_val}</tspan></text></g>')
         y_pos += 23
         delay_start += 0.12
         

@@ -105,24 +105,30 @@ def build_about_svg(config, palette, mode):
     cy = ly_top + 34
     delay = 0.1
 
+    import html
+    def safe_text(val):
+        return html.escape(str(val))
+
     def animated_text(x, y, content, fill, font_size=13, bold=False, delay_s=0.0, monospace=True):
         fw = "700" if bold else "400"
         ff = "monospace" if monospace else "sans-serif"
+        safe_content = safe_text(content)
         lines.append(
             f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_s:.2f}s" fill="freeze"/>'
-            f'<text x="{x}" y="{y}" font-family="{ff}" font-size="{font_size}" font-weight="{fw}" fill="{fill}">{content}</text>'
+            f'<text x="{x}" y="{y}" font-family="{ff}" font-size="{font_size}" font-weight="{fw}" fill="{fill}">{safe_content}</text>'
             f'</g>'
         )
 
     def animated_row_left(label, value, y_pos, delay_s):
-        # label
+        safe_label = safe_text(label)
+        safe_val = safe_text(value)
         lines.append(
             f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_s:.2f}s" fill="freeze"/>'
             f'<animateTransform attributeName="transform" type="translate" values="-6 0;0 0" dur="0.4s" begin="{delay_s:.2f}s" fill="freeze"/>'
             f'<text x="{lx+16}" y="{y_pos}" font-family="monospace" font-size="13" xml:space="preserve">'
-            f'<tspan fill="{p["label"]}">{label} </tspan>'
+            f'<tspan fill="{p["label"]}">{safe_label} </tspan>'
             f'<tspan fill="{p["muted"]}" opacity="0.4">.....</tspan>'
-            f'<tspan fill="{p["value"]}"> {value}</tspan>'
+            f'<tspan fill="{p["value"]}"> {safe_val}</tspan>'
             f'</text></g>'
         )
 
@@ -195,21 +201,24 @@ def build_about_svg(config, palette, mode):
     rcy = ry_top + 30
 
     def animated_row_right(label, value, y_pos, d):
+        safe_label = safe_text(label)
+        safe_val = safe_text(value)
         lines.append(
             f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{d:.2f}s" fill="freeze"/>'
             f'<animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{d:.2f}s" fill="freeze"/>'
             f'<text x="{rx+16}" y="{y_pos}" font-family="monospace" font-size="13" textLength="{rw-32}" lengthAdjust="spacingAndGlyphs" xml:space="preserve">'
-            f'<tspan fill="{p["label"]}">{label} </tspan>'
+            f'<tspan fill="{p["label"]}">{safe_label} </tspan>'
             f'<tspan fill="{p["muted"]}" opacity="0.35">..........................................................</tspan>'
-            f'<tspan fill="{p["value"]}" font-weight="600"> {value}</tspan>'
+            f'<tspan fill="{p["value"]}" font-weight="600"> {safe_val}</tspan>'
             f'</text></g>'
         )
 
     def section_header_right(title, y_pos, d):
+        safe_title = safe_text(title)
         lines.append(
             f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{d:.2f}s" fill="freeze"/>'
             f'<text x="{rx+16}" y="{y_pos}" font-family="monospace" font-size="13" textLength="{rw-32}" lengthAdjust="spacingAndGlyphs" xml:space="preserve">'
-            f'<tspan fill="{p["muted"]}">- {title} </tspan>'
+            f'<tspan fill="{p["muted"]}">- {safe_title} </tspan>'
             f'<tspan fill="{p["muted"]}" opacity="0.35">-------------------------------------------------------------------</tspan>'
             f'</text></g>'
         )
