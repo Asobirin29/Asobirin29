@@ -17,10 +17,23 @@ PALETTES = {
         "dark": {"bg_start": "#020617", "bg_end": "#11152F", "panel": "#07111F", "primary": "#E5E7EB", "muted": "#64748B", "cyan": "#22D3EE", "red": "#F87171", "blue": "#38BDF8", "violet": "#7C3AED", "green": "#10B981"},
         "light": {"bg_start": "#F8FBFF", "bg_end": "#F5F3FF", "panel": "#FFFFFF", "primary": "#172554", "muted": "#64748B", "cyan": "#0891B2", "red": "#DC2626", "blue": "#2563EB", "violet": "#6D28D9", "green": "#047857"}
     },
+    "ocean": {
+        "dark": {"bg_start": "#02131A", "bg_end": "#111827", "panel": "#061A22", "primary": "#E5F6F8", "muted": "#6B8791", "cyan": "#2DD4BF", "red": "#FB7185", "blue": "#38BDF8", "violet": "#6366F1", "green": "#34D399"},
+        "light": {"bg_start": "#F4FCFC", "bg_end": "#F4F7FF", "panel": "#FFFFFF", "primary": "#123047", "muted": "#64748B", "cyan": "#0F766E", "red": "#BE123C", "blue": "#0284C7", "violet": "#4F46E5", "green": "#047857"}
+    },
+    "solar": {
+        "dark": {"bg_start": "#140A04", "bg_end": "#281308", "panel": "#1F0E06", "primary": "#FFF7ED", "muted": "#A8A29E", "cyan": "#F59E0B", "red": "#EF4444", "blue": "#F97316", "violet": "#E11D48", "green": "#10B981"},
+        "light": {"bg_start": "#FFFBEB", "bg_end": "#FEF3C7", "panel": "#FFFFFF", "primary": "#451A03", "muted": "#78350F", "cyan": "#D97706", "red": "#DC2626", "blue": "#EA580C", "violet": "#BE123C", "green": "#047857"}
+    },
+    "emerald": {
+        "dark": {"bg_start": "#021A12", "bg_end": "#0D281E", "panel": "#062319", "primary": "#ECFDF5", "muted": "#6EE7B7", "cyan": "#10B981", "red": "#F87171", "blue": "#F59E0B", "violet": "#84CC16", "green": "#34D399"},
+        "light": {"bg_start": "#F0FDF4", "bg_end": "#ECFDF5", "panel": "#FFFFFF", "primary": "#064E3B", "muted": "#047857", "cyan": "#059669", "red": "#DC2626", "blue": "#D97706", "violet": "#65A30D", "green": "#10B981"}
+    },
+    "neon": {
+        "dark": {"bg_start": "#16041A", "bg_end": "#280A30", "panel": "#210829", "primary": "#FDF4FF", "muted": "#E9D5FF", "cyan": "#EC4899", "red": "#F43F5E", "blue": "#F59E0B", "violet": "#A855F7", "green": "#10B981"},
+        "light": {"bg_start": "#FDF4FF", "bg_end": "#FAE8FF", "panel": "#FFFFFF", "primary": "#581C87", "muted": "#7E22CE", "cyan": "#DB2777", "red": "#E11D48", "blue": "#D97706", "violet": "#9333EA", "green": "#047857"}
+    }
 }
-# Fallbacks for other palettes to prevent failure
-for k in ["ocean", "solar", "emerald", "neon"]:
-    PALETTES[k] = PALETTES["signal"]
 
 def load_config(config_path):
     with open(config_path, "r", encoding="utf-8") as f:
