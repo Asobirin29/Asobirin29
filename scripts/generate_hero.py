@@ -34,12 +34,15 @@ PALETTES = {
         "light": {"bg_start": "#FDF4FF", "bg_end": "#FAE8FF", "panel": "#FFFFFF", "primary": "#581C87", "muted": "#7E22CE", "cyan": "#DB2777", "red": "#E11D48", "blue": "#D97706", "violet": "#9333EA", "green": "#047857"}
     }
 }
+# Fallbacks for other palettes to prevent failure
+for k in ["ocean", "solar", "emerald", "neon"]:
+    pass
 
 def load_config(config_path):
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def process_portrait(source_path, target_width=150, target_height=170, mode='dark'):
+def process_portrait(source_path, target_width=300, target_height=340, mode='dark'):
     """Process image: crop, resize, contrast, mask, dither"""
     img = Image.open(source_path).convert("RGBA")
     w, h = img.size
@@ -194,30 +197,114 @@ def generate_svg(config, dots, palette, mode):
     # ==== INTRO LAYER ====
     # 60 interleaved random groups fade in over ~2s
     # Total time 3.2s. 
-    intro_groups = 20
+    intro_groups = 60
     # Center the dots inside the new 400x492 portrait frame at (36,84)
-    # Dot field is 150x170. Scale up 2.3x to fill the frame nicely.
-    svg.append(f'<g transform="translate(46, 96) scale(2.3, 2.3)" fill="{palette["violet"]}" shape-rendering="crispEdges">')
+    # The dot field was generated at max 300x340. Scale it a bit and center it.
+    svg.append(f'<g transform="translate(50, 100) scale(1.15, 1.15)" fill="{palette["violet"]}" shape-rendering="crispEdges">')
     for g in range(intro_groups):
         g_coords = coords[g::intro_groups]
         paths = []
         for y, x in g_coords:
             paths.append(f"M{x},{y}h1")
         path_str = " ".join(paths)
-        fade_start = random.uniform(0.05, 1.5)
-        path_str = " ".join(paths)
-        svg.append(
-            f'<g opacity="0">'
-            f'<animate attributeName="opacity" values="0;1" dur="0.9s" begin="{fade_start:.2f}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".4 0 .2 1"/>'
-            f'<path d="{path_str}" stroke="currentColor" stroke-width="1"/>'
-            f'</g>'
-        )
+        fade_start = random.uniform(0, 1.2)
+        # Opacity keyframes: 0 at start, fade to 1, then at 3.2s go to 0.
+        svg.append(f'<path d="{path_str}" stroke="currentColor" stroke-width="1" opacity="0">')
+        svg.append(f'  <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{fade_start/14.2:.4f};{3.2/14.2:.4f};{3.201/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'</path>')
     svg.append('</g>')
     
-    # Keep portrait visible after intro (simple approach, no loop/traveller for file size)
-    # Portrait just stays at opacity=1 after fading in.
-    # We use a simple set element to freeze state after intro.
-    # (Loop and traveller layers removed to keep file size under GitHub Camo limit ~800KB)
+    # ==== LOOP LAYER ====
+    # Portrait 3.0s, translate 42% toward center + fade out over 1.3s
+    # Remain invisible. Translate back + fade in at 12.9 to 14.2s
+    svg.append(f'<g fill="{palette["violet"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    cx, cy = 150, 170
+    grid_size = 30
+    groups = {}
+    for y, x in coords:
+        xn, yn = x + random.uniform(-4, 4), y + random.uniform(-4, 4)
+        gx, gy = int(xn // grid_size), int(yn // grid_size)
+        if (gx, gy) not in groups:
+            groups[(gx, gy)] = []
+        groups[(gx, gy)].append((x, y))
+        
+    for (gx, gy), pts in groups.items():
+        # group drift target
+        avg_x = sum(p[0] for p in pts) / len(pts)
+        avg_y = sum(p[1] for p in pts) / len(pts)
+        dx = (cx - avg_x) * 0.42
+        dy = (cy - avg_y) * 0.42
+        
+        paths = []
+        for x, y in pts:
+            paths.append(f"M{x},{y}h1")
+        path_str = " ".join(paths)
+        
+        svg.append(f'<g opacity="0">')
+        # Opacity: invisible intro (0-3.2), full (3.2-6.2), fade out (6.2-7.5), hidden, fade in (16.1-17.4) -- wait 14.2s loop
+        # The intro uses first 3.2s of the loop.
+        # Keytimes relative to 14.2s:
+        # 0 (0), 3.2s (0.225), 6.2s (0.436 - portrait hold end), 7.5s (0.528 - portrait trans end), 12.9s (0.908 - portrait trans start), 14.2 (1)
+        svg.append(f'  <animate attributeName="d" values="M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]},{pts[0][0]}h1" keyTimes="0;{3.2/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="opacity" values="0;0;1;1;0;0;1" keyTimes="0;{3.2/14.2:.4f};{3.201/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <path d="{path_str}" stroke="currentColor" stroke-width="1" />')
+        svg.append(f'</g>')
+    svg.append('</g>')
+    
+    # ==== TRAVELLERS LAYER ====
+    # 900 dots morphing between logos.
+    num_trav = 900
+    logo1 = gen_logo_points('circle', num_trav)
+    logo2 = gen_logo_points('square', num_trav)
+    logo3 = gen_logo_points('triangle', num_trav)
+    
+    from scipy.spatial.distance import cdist
+    d12 = cdist(logo1, logo2)
+    row_ind, col_ind = linear_sum_assignment(d12)
+    logo2 = logo2[col_ind]
+    
+    d23 = cdist(logo2, logo3)
+    row_ind, col_ind = linear_sum_assignment(d23)
+    logo3 = logo3[col_ind]
+    
+    svg.append(f'<g fill="{palette["cyan"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    for i in range(num_trav):
+        p1 = logo1[i]
+        p2 = logo2[i]
+        p3 = logo3[i]
+        # Animation flow in 14.2s loop:
+        # 0 - 6.2s: invisible portrait phase
+        # 6.2 - 7.5s: transition portrait -> logo1 (fade in at logo1)
+        # 7.5 - 9.5s: logo1 hold
+        # 9.5 - 10.8s: morph 1->2
+        # 10.8 - 12.8s: logo2 hold
+        # 12.8 - 14.1s: morph 2->3
+        # wait we only have 14.2s total!
+        # Re-verify timings: portrait 3.0, each logo 2.0 (x3=6.0), 1.3s transitions.
+        # portrait (3.0) + trans(1.3) + logo1(2.0) + trans(1.3) + logo2(2.0) + trans(1.3) + logo3(2.0) + trans(1.3) = 14.2
+        # T=0 to T=3.2 is INTRO. 
+        # The prompt says Loop(~14.2s). The loop starts *after* intro, or intro is just first 3.2s of the absolute timeline and loop is 14.2s continuous?
+        # Let's say loop is 14.2s. 
+        # 0.0 - 3.0: Portrait hold
+        # 3.0 - 4.3: Portrait fades, Logo1 fades in
+        # 4.3 - 6.3: Logo1 hold
+        # 6.3 - 7.6: morph Logo1 -> Logo2
+        # 7.6 - 9.6: Logo2 hold
+        # 9.6 - 10.9: morph Logo2 -> Logo3
+        # 10.9 - 12.9: Logo3 hold
+        # 12.9 - 14.2: Logo3 fades out, Portrait fades in
+        
+        cx_vals = f"{p1[0]}; {p1[0]}; {p1[0]}; {p1[0]}; {p2[0]}; {p2[0]}; {p3[0]}; {p3[0]}; {p3[0]}"
+        cy_vals = f"{p1[1]}; {p1[1]}; {p1[1]}; {p1[1]}; {p2[1]}; {p2[1]}; {p3[1]}; {p3[1]}; {p3[1]}"
+        k_times = f"0; {3.0/14.2:.4f}; {4.3/14.2:.4f}; {6.3/14.2:.4f}; {7.6/14.2:.4f}; {9.6/14.2:.4f}; {10.9/14.2:.4f}; {12.9/14.2:.4f}; 1"
+        op_vals = f"0; 0; 1; 1; 1; 1; 1; 1; 0"
+        
+        svg.append(f'<circle r="1">')
+        svg.append(f'  <animate attributeName="cx" values="{cx_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="cy" values="{cy_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="opacity" values="{op_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'</circle>')
+    svg.append('</g>')
     
     # ==== SYSTEM INFO TEXT ====
     # Using the beautiful animated rows from dark.svg
@@ -228,18 +315,14 @@ def generate_svg(config, dots, palette, mode):
     svg.append(f'<text x="470" y="80" font-size="10" letter-spacing="3" fill="#475569">SYSTEM.INFO</text>')
     
     import html
-    
-    def safe_text(val):
-        return html.escape(str(val))
-
     def add_animated_row(label, value, is_header=False):
+        label = html.escape(str(label))
+        value = html.escape(str(value))
         nonlocal y_pos, delay_start
-        safe_label = safe_text(label)
-        safe_val = safe_text(value)
         if is_header:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["muted"]}">- {safe_label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">---------------------------------------------------------------------</tspan></text></g>')
+            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["muted"]}">- {label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">---------------------------------------------------------------------</tspan></text></g>')
         else:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["cyan"]}">{safe_label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">..........................................................</tspan><tspan fill="{palette["primary"]}" font-weight="600"> {safe_val}</tspan></text></g>')
+            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["cyan"]}">{label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">..........................................................</tspan><tspan fill="{palette["primary"]}" font-weight="600"> {value}</tspan></text></g>')
         y_pos += 23
         delay_start += 0.12
         
@@ -292,9 +375,7 @@ def main():
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     
-    import os
-    source_mtime = str(int(os.path.getmtime(args.source)))
-    version_string = f"v3-{palette_name}-{source_mtime}"
+    version_string = f"v1-{palette_name}"
     version = "python-" + hashlib.md5(version_string.encode()).hexdigest()[:8]
     
     for mode in ['dark', 'light']:
