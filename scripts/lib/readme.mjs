@@ -117,7 +117,7 @@ function renderVisuals(config) {
   
   if (!radarEnabled && !visualizerEnabled) return "";
   
-  const baseRawUrl = `https://raw.githubusercontent.com/${config.profile.username}/${config.profile.username}/main`;
+  const baseRawUrl = `.`;
   let content = "";
   if (radarEnabled && visualizerEnabled) {
     content = `
@@ -180,7 +180,7 @@ export async function generateProfileReadme({ config, manifest, manifestGreen, r
   const statsSection = renderStats(config.profile.username, config.appearance.palette);
   const visualsSection = renderVisuals(config);
 
-  const baseRawUrl = `https://raw.githubusercontent.com/${config.profile.username}/${config.profile.username}/main`;
+  const baseRawUrl = `.`;
 
   const pacmanSection = config.pacman?.enabled
     ? `\n<p align="center">\n  <picture>\n    <source media="(prefers-color-scheme: dark)" srcset="${baseRawUrl}/assets/visuals/pacman-dark.svg">\n    <source media="(prefers-color-scheme: light)" srcset="${baseRawUrl}/assets/visuals/pacman-light.svg">\n    <img alt="Pacman Animation" src="${baseRawUrl}/assets/visuals/pacman-dark.svg" width="100%">\n  </picture>\n</p>\n`
@@ -250,9 +250,9 @@ ${pacmanSection}
 ## GitHub Contributions
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg">
-  <img alt="Pacman Contribution Graph" src="https://raw.githubusercontent.com/Asobirin29/Asobirin29/pacman-output/pacman-contribution-graph.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Asobirin29/Asobirin29/raw/pacman-output/pacman-contribution-graph.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Asobirin29/Asobirin29/raw/pacman-output/pacman-contribution-graph.svg">
+  <img alt="Pacman Contribution Graph" src="https://github.com/Asobirin29/Asobirin29/raw/pacman-output/pacman-contribution-graph.svg" width="100%">
 </picture>
 ${activitySection}${jokeSection}
 ---
