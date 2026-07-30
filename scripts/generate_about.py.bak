@@ -74,35 +74,13 @@ def build_about_svg(config, palette, mode):
   </linearGradient>
   <filter id="aglow3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
   <filter id="aglow8" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8"/></filter>
-  
-  <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="2" fill="#000000" opacity="0.35" />
-  </pattern>
-  
-  <pattern id="cybergrid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="{p['border']}" stroke-width="0.5" opacity="0.1" />
-  </pattern>
-
   <clipPath id="awinClip"><rect x="2" y="2" width="1176" height="606" rx="18"/></clipPath>
-  
-  <filter id="glitch">
-    <feOffset dx="2" dy="0" in="SourceGraphic" result="red-glitch">
-      <animate attributeName="dx" values="0; 3; -2; 0" dur="2s" repeatCount="indefinite" />
-    </feOffset>
-    <feOffset dx="-2" dy="0" in="SourceGraphic" result="blue-glitch">
-      <animate attributeName="dx" values="0; -3; 2; 0" dur="2.1s" repeatCount="indefinite" />
-    </feOffset>
-    <feBlend in="red-glitch" in2="blue-glitch" mode="screen" />
-  </filter>
 </defs>""")
 
     # Background
     lines.append(f'<rect x="2" y="2" width="1176" height="606" rx="18" fill="{p["bg"]}"/>')
     lines.append(f'<g clip-path="url(#awinClip)">')
     lines.append(f'<rect x="2" y="2" width="1176" height="606" fill="url(#abg)"/>')
-    
-    # Cyber grid
-    lines.append(f'<rect x="2" y="2" width="1176" height="606" fill="url(#cybergrid)"/>')
 
     # Title bar
     lines.append(f'<rect x="2" y="2" width="1176" height="46" fill="#0B1222"/>')
@@ -155,11 +133,7 @@ def build_about_svg(config, palette, mode):
         )
 
     # Name + Role header
-    lines.append(
-        f'<g opacity="0" filter="url(#glitch)"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay:.2f}s" fill="freeze"/>'
-        f'<text x="{lx+16}" y="{cy}" font-family="monospace" font-size="16" font-weight="700" fill="{p["title"]}">{safe_text(f"# {name}")}</text>'
-        f'</g>'
-    )
+    animated_text(lx+16, cy, f"# {name}", p["title"], font_size=16, bold=True, delay_s=delay)
     cy += 22; delay += 0.1
     animated_text(lx+16, cy, profile.get("headline", ""), p["label"], font_size=13, delay_s=delay)
     cy += 6; delay += 0.08
@@ -282,27 +256,6 @@ def build_about_svg(config, palette, mode):
         f' <tspan fill="{p["cursor"]}">&#9608;<animate attributeName="fill-opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan>'
         f'</text></g>'
     )
-    
-    # Animated Scanning Line
-    lines.append(f'<line x1="0" y1="48" x2="1180" y2="48" stroke="{p["border"]}" stroke-width="1.5" opacity="0.3" filter="url(#aglow3)">')
-    lines.append(f'  <animate attributeName="y1" values="48; 606; 48" dur="6s" repeatCount="indefinite"/>')
-    lines.append(f'  <animate attributeName="y2" values="48; 606; 48" dur="6s" repeatCount="indefinite"/>')
-    lines.append(f'</line>')
-
-    # Corner brackets for left panel
-    lines.append(f'<path d="M {lx+10} {ly_top+14} L {lx+4} {ly_top+14} L {lx+4} {ly_top+20}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {lx+lw-10} {ly_top+14} L {lx+lw-4} {ly_top+14} L {lx+lw-4} {ly_top+20}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {lx+10} {ly_top+lh-6} L {lx+4} {ly_top+lh-6} L {lx+4} {ly_top+lh-12}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {lx+lw-10} {ly_top+lh-6} L {lx+lw-4} {ly_top+lh-6} L {lx+lw-4} {ly_top+lh-12}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-
-    # Corner brackets for right panel
-    lines.append(f'<path d="M {rx+10} {ry_top+14} L {rx+4} {ry_top+14} L {rx+4} {ry_top+20}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {rx+rw-10} {ry_top+14} L {rx+rw-4} {ry_top+14} L {rx+rw-4} {ry_top+20}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {rx+10} {ry_top+rh-6} L {rx+4} {ry_top+rh-6} L {rx+4} {ry_top+rh-12}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-    lines.append(f'<path d="M {rx+rw-10} {ry_top+rh-6} L {rx+rw-4} {ry_top+rh-6} L {rx+rw-4} {ry_top+rh-12}" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.6"/>')
-
-    # Scanlines on top of everything
-    lines.append(f'<rect x="2" y="46" width="1176" height="562" fill="url(#scanlines)" pointer-events="none"/>')
 
     lines.append('</g>')  # end clip
 

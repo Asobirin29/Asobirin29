@@ -26,84 +26,84 @@
   <text x="20" y="58" class="status">Device: Dev-Station-Node / status: active</text>
   <g transform="translate(18, 50)">
     <rect class="bar" x="5" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="94;89;46;21;32;49;58;20;94" dur="1.53s" begin="-0.67s" repeatCount="indefinite" />
-      <animate attributeName="y" values="16;21;64;89;78;61;52;90;16" dur="1.53s" begin="-0.67s" repeatCount="indefinite" />
+      <animate attributeName="height" values="46;29;32;57;52;56;20;68;46" dur="1.08s" begin="-0.98s" repeatCount="indefinite" />
+      <animate attributeName="y" values="64;81;78;53;58;54;90;42;64" dur="1.08s" begin="-0.98s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="18" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="71;63;69;67;66;64;47;25;71" dur="0.91s" begin="-0.23s" repeatCount="indefinite" />
-      <animate attributeName="y" values="39;47;41;43;44;46;63;85;39" dur="0.91s" begin="-0.23s" repeatCount="indefinite" />
+      <animate attributeName="height" values="20;32;31;52;50;78;27;21;20" dur="1.49s" begin="-0.72s" repeatCount="indefinite" />
+      <animate attributeName="y" values="90;78;79;58;60;32;83;89;90" dur="1.49s" begin="-0.72s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="31" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="8;51;89;33;10;53;35;49;8" dur="0.94s" begin="-0.41s" repeatCount="indefinite" />
-      <animate attributeName="y" values="102;59;21;77;100;57;75;61;102" dur="0.94s" begin="-0.41s" repeatCount="indefinite" />
+      <animate attributeName="height" values="92;24;58;64;69;20;24;10;92" dur="0.74s" begin="-0.97s" repeatCount="indefinite" />
+      <animate attributeName="y" values="18;86;52;46;41;90;86;100;18" dur="0.74s" begin="-0.97s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="44" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="37;83;33;87;54;30;43;13;37" dur="0.77s" begin="-0.01s" repeatCount="indefinite" />
-      <animate attributeName="y" values="73;27;77;23;56;80;67;97;73" dur="0.77s" begin="-0.01s" repeatCount="indefinite" />
+      <animate attributeName="height" values="69;39;26;32;42;77;22;65;69" dur="0.82s" begin="-0.89s" repeatCount="indefinite" />
+      <animate attributeName="y" values="41;71;84;78;68;33;88;45;41" dur="0.82s" begin="-0.89s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="57" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="31;15;90;90;70;32;39;8;31" dur="0.71s" begin="-1.31s" repeatCount="indefinite" />
-      <animate attributeName="y" values="79;95;20;20;40;78;71;102;79" dur="0.71s" begin="-1.31s" repeatCount="indefinite" />
+      <animate attributeName="height" values="32;29;69;46;73;65;54;83;32" dur="1.04s" begin="-0.4s" repeatCount="indefinite" />
+      <animate attributeName="y" values="78;81;41;64;37;45;56;27;78" dur="1.04s" begin="-0.4s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="70" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="8;41;93;8;10;90;83;85;8" dur="0.78s" begin="-0.07s" repeatCount="indefinite" />
-      <animate attributeName="y" values="102;69;17;102;100;20;27;25;102" dur="0.78s" begin="-0.07s" repeatCount="indefinite" />
+      <animate attributeName="height" values="16;92;43;42;33;16;25;72;16" dur="1.16s" begin="-0.56s" repeatCount="indefinite" />
+      <animate attributeName="y" values="94;18;67;68;77;94;85;38;94" dur="1.16s" begin="-0.56s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="83" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="65;19;72;81;12;14;82;67;65" dur="0.92s" begin="-0.41s" repeatCount="indefinite" />
-      <animate attributeName="y" values="45;91;38;29;98;96;28;43;45" dur="0.92s" begin="-0.41s" repeatCount="indefinite" />
+      <animate attributeName="height" values="33;75;72;54;37;86;19;41;33" dur="1.33s" begin="-0.34s" repeatCount="indefinite" />
+      <animate attributeName="y" values="77;35;38;56;73;24;91;69;77" dur="1.33s" begin="-0.34s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="96" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="20;40;23;79;37;20;70;33;20" dur="0.96s" begin="-0.69s" repeatCount="indefinite" />
-      <animate attributeName="y" values="90;70;87;31;73;90;40;77;90" dur="0.96s" begin="-0.69s" repeatCount="indefinite" />
+      <animate attributeName="height" values="29;70;18;67;94;9;84;50;29" dur="0.77s" begin="-0.79s" repeatCount="indefinite" />
+      <animate attributeName="y" values="81;40;92;43;16;101;26;60;81" dur="0.77s" begin="-0.79s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="109" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="36;11;51;29;42;60;83;27;36" dur="1.09s" begin="-0.21s" repeatCount="indefinite" />
-      <animate attributeName="y" values="74;99;59;81;68;50;27;83;74" dur="1.09s" begin="-0.21s" repeatCount="indefinite" />
+      <animate attributeName="height" values="68;33;12;84;48;22;90;86;68" dur="0.93s" begin="-1.05s" repeatCount="indefinite" />
+      <animate attributeName="y" values="42;77;98;26;62;88;20;24;42" dur="0.93s" begin="-1.05s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="122" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="37;14;54;93;75;38;72;93;37" dur="0.98s" begin="-1.31s" repeatCount="indefinite" />
-      <animate attributeName="y" values="73;96;56;17;35;72;38;17;73" dur="0.98s" begin="-1.31s" repeatCount="indefinite" />
+      <animate attributeName="height" values="56;69;59;89;15;61;60;38;56" dur="1.13s" begin="-1.28s" repeatCount="indefinite" />
+      <animate attributeName="y" values="54;41;51;21;95;49;50;72;54" dur="1.13s" begin="-1.28s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="135" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="42;17;21;23;10;68;32;58;42" dur="1.29s" begin="-0.36s" repeatCount="indefinite" />
-      <animate attributeName="y" values="68;93;89;87;100;42;78;52;68" dur="1.29s" begin="-0.36s" repeatCount="indefinite" />
+      <animate attributeName="height" values="25;81;86;57;83;10;11;53;25" dur="1.28s" begin="-0.93s" repeatCount="indefinite" />
+      <animate attributeName="y" values="85;29;24;53;27;100;99;57;85" dur="1.28s" begin="-0.93s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="148" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="34;22;8;45;8;50;38;39;34" dur="1.54s" begin="-0.52s" repeatCount="indefinite" />
-      <animate attributeName="y" values="76;88;102;65;102;60;72;71;76" dur="1.54s" begin="-0.52s" repeatCount="indefinite" />
+      <animate attributeName="height" values="49;94;13;35;78;73;82;22;49" dur="1.18s" begin="-0.17s" repeatCount="indefinite" />
+      <animate attributeName="y" values="61;16;97;75;32;37;28;88;61" dur="1.18s" begin="-0.17s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="161" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="38;14;68;28;79;44;16;10;38" dur="1.32s" begin="-0.68s" repeatCount="indefinite" />
-      <animate attributeName="y" values="72;96;42;82;31;66;94;100;72" dur="1.32s" begin="-0.68s" repeatCount="indefinite" />
+      <animate attributeName="height" values="85;26;19;72;37;72;64;42;85" dur="1.13s" begin="-1.46s" repeatCount="indefinite" />
+      <animate attributeName="y" values="25;84;91;38;73;38;46;68;25" dur="1.13s" begin="-1.46s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="174" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="67;79;9;77;38;38;66;78;67" dur="0.91s" begin="-0.56s" repeatCount="indefinite" />
-      <animate attributeName="y" values="43;31;101;33;72;72;44;32;43" dur="0.91s" begin="-0.56s" repeatCount="indefinite" />
+      <animate attributeName="height" values="86;46;36;83;51;92;50;86;86" dur="1.05s" begin="-0.23s" repeatCount="indefinite" />
+      <animate attributeName="y" values="24;64;74;27;59;18;60;24;24" dur="1.05s" begin="-0.23s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="187" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="15;68;81;85;49;82;84;77;15" dur="0.98s" begin="-1.12s" repeatCount="indefinite" />
-      <animate attributeName="y" values="95;42;29;25;61;28;26;33;95" dur="0.98s" begin="-1.12s" repeatCount="indefinite" />
+      <animate attributeName="height" values="37;24;11;52;35;37;39;47;37" dur="1.05s" begin="-1.32s" repeatCount="indefinite" />
+      <animate attributeName="y" values="73;86;99;58;75;73;71;63;73" dur="1.05s" begin="-1.32s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="200" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="18;24;61;46;64;30;45;39;18" dur="0.84s" begin="-1.01s" repeatCount="indefinite" />
-      <animate attributeName="y" values="92;86;49;64;46;80;65;71;92" dur="0.84s" begin="-1.01s" repeatCount="indefinite" />
+      <animate attributeName="height" values="90;78;55;48;24;48;37;82;90" dur="1.45s" begin="-1.28s" repeatCount="indefinite" />
+      <animate attributeName="y" values="20;32;55;62;86;62;73;28;20" dur="1.45s" begin="-1.28s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="213" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="60;39;52;31;27;45;43;69;60" dur="0.76s" begin="-1.25s" repeatCount="indefinite" />
-      <animate attributeName="y" values="50;71;58;79;83;65;67;41;50" dur="0.76s" begin="-1.25s" repeatCount="indefinite" />
+      <animate attributeName="height" values="8;33;15;90;28;88;68;94;8" dur="0.76s" begin="-0.71s" repeatCount="indefinite" />
+      <animate attributeName="y" values="102;77;95;20;82;22;42;16;102" dur="0.76s" begin="-0.71s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="226" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="38;65;55;23;55;54;47;55;38" dur="0.99s" begin="-0.72s" repeatCount="indefinite" />
-      <animate attributeName="y" values="72;45;55;87;55;56;63;55;72" dur="0.99s" begin="-0.72s" repeatCount="indefinite" />
+      <animate attributeName="height" values="24;78;24;47;74;55;16;47;24" dur="1.60s" begin="-0.41s" repeatCount="indefinite" />
+      <animate attributeName="y" values="86;32;86;63;36;55;94;63;86" dur="1.60s" begin="-0.41s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="239" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="92;21;87;13;31;28;28;46;92" dur="1.13s" begin="-0.23s" repeatCount="indefinite" />
-      <animate attributeName="y" values="18;89;23;97;79;82;82;64;18" dur="1.13s" begin="-0.23s" repeatCount="indefinite" />
+      <animate attributeName="height" values="64;86;44;75;35;42;68;66;64" dur="0.91s" begin="-1.28s" repeatCount="indefinite" />
+      <animate attributeName="y" values="46;24;66;35;75;68;42;44;46" dur="0.91s" begin="-1.28s" repeatCount="indefinite" />
     </rect>
     <rect class="bar" x="252" y="102" width="8" height="8" rx="4.0" fill="url(#bar-grad)">
-      <animate attributeName="height" values="69;43;10;8;51;66;56;80;69" dur="0.90s" begin="-1.03s" repeatCount="indefinite" />
-      <animate attributeName="y" values="41;67;100;102;59;44;54;30;41" dur="0.90s" begin="-1.03s" repeatCount="indefinite" />
+      <animate attributeName="height" values="49;73;81;71;62;51;40;12;49" dur="0.84s" begin="-0.81s" repeatCount="indefinite" />
+      <animate attributeName="y" values="61;37;29;39;48;59;70;98;61" dur="0.84s" begin="-0.81s" repeatCount="indefinite" />
     </rect>
   </g>
 </svg>
