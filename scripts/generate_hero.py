@@ -272,7 +272,9 @@ def main():
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     
-    version_string = f"v1-{palette_name}"
+    import os
+    source_mtime = str(int(os.path.getmtime(args.source)))
+    version_string = f"v3-{palette_name}-{source_mtime}"
     version = "python-" + hashlib.md5(version_string.encode()).hexdigest()[:8]
     
     for mode in ['dark', 'light']:
