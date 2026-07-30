@@ -10,9 +10,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/about-terminal-a10c2e90-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/about-terminal-a10c2e90-light.svg">
-    <img src="./assets/hero/about-terminal-a10c2e90-dark.svg" alt="Ahmad Sobirin - About Me" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/about-terminal-c61e53c9-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/about-terminal-c61e53c9-light.svg">
+    <img src="./assets/hero/about-terminal-c61e53c9-dark.svg" alt="Ahmad Sobirin - About Me" width="100%">
   </picture>
 </p>
 
