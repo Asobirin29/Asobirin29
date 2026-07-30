@@ -150,7 +150,7 @@ function renderVisuals(config) {
   return `\n## Interactive Maps & Status\n${content}\n`;
 }
 
-export async function generateProfileReadme({ config, manifest, manifestGreen, readmePath }) {
+export async function generateProfileReadme({ config, manifest, manifestGreen, aboutManifest, readmePath }) {
   const existingActivity = await readExistingActivity(readmePath);
   const activity = existingActivity || "_Recent public activity will appear here after the workflow runs._";
   const activitySection = config.activity.enabled
@@ -203,14 +203,23 @@ ${manifestGreen ? `
   </picture>
 </p>
 ` : ""}
+${aboutManifest ? `
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="${baseRawUrl}/assets/hero/${aboutManifest.assets.dark}">
+    <source media="(prefers-color-scheme: light)" srcset="${baseRawUrl}/assets/hero/${aboutManifest.assets.light}">
+    <img src="${baseRawUrl}/assets/hero/${aboutManifest.assets.dark}" alt="${config.profile.name} - About Me" width="100%">
+  </picture>
+</p>
+` : `
+## 👨‍💻 About Me
+
+${about}
+`}
 ${statsSection}
 <p align="center">
 ${renderLinks(config.links)}
 </p>
-
-## 👨‍💻 About Me
-
-${about}
 
 ## 🎯 Current Focus
 

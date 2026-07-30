@@ -16,6 +16,15 @@
 </p>
 
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/about-terminal-3c106aec-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/about-terminal-3c106aec-light.svg">
+    <img src="./assets/hero/about-terminal-3c106aec-dark.svg" alt="Ahmad Sobirin - About Me" width="100%">
+  </picture>
+</p>
+
+
 ## GitHub Stats
 
 <p align="center">
@@ -34,12 +43,6 @@
 <p align="center">
   <a href="https://github.com/Asobirin29"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Asobirin29-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
-
-## 👨‍💻 About Me
-
-> I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.
->
-> My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works.
 
 ## 🎯 Current Focus
 

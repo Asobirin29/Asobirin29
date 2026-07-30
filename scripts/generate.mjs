@@ -32,6 +32,14 @@ try {
     execSync(`node scripts/generate-hero.mjs --source "${resolve(source)}" --config "${greenConfigPath}"`, { stdio: "inherit", cwd: repositoryRoot });
     manifestGreen = JSON.parse(await readFile(resolve(heroOutputDir, "manifest.json"), "utf8"));
   }
+
+  // Generate About Me terminal (blue terminal)
+  console.log("Generating About Me terminal (blue)...");
+  const pythonExe = resolve(repositoryRoot, ".venv/Scripts/python.exe");
+  const configPath = readFlag("--config") || resolve(repositoryRoot, "profile.config.json");
+  execSync(`"${pythonExe}" scripts/generate_about.py --config "${configPath}" --outdir "${heroOutputDir}"`, { stdio: "inherit", cwd: repositoryRoot });
+  const aboutManifest = JSON.parse(await readFile(resolve(heroOutputDir, "about-manifest.json"), "utf8"));
+
   await generateRadarAssets({
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
@@ -44,7 +52,7 @@ try {
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
   });
-  await generateProfileReadme({ config, manifest, manifestGreen, readmePath: resolve(repositoryRoot, "README.md") });
+  await generateProfileReadme({ config, manifest, manifestGreen, aboutManifest, readmePath: resolve(repositoryRoot, "README.md") });
   console.log(`Profile generated successfully (asset version ${manifest.version}).`);
 } catch (error) {
   console.error(error.message);
