@@ -7,6 +7,8 @@ import { generateProfileReadme } from "./lib/readme.mjs";
 import { generateRadarAssets } from "./lib/radar.mjs";
 import { generateVisualizerAssets } from "./lib/visualizer.mjs";
 import { generatePacmanAssets } from "./lib/pacman.mjs";
+import { execSync } from "node:child_process";
+import { readFile } from "node:fs/promises";
 
 const source = readFlag("--source");
 if (!source) {
@@ -16,11 +18,11 @@ if (!source) {
 
 try {
   const config = await loadConfig(readFlag("--config"));
-  const manifest = await generateHeroAssets({
-    config,
-    sourcePath: resolve(source),
-    outputDirectory: resolve(repositoryRoot, "assets/hero")
-  });
+  const heroOutputDir = resolve(repositoryRoot, "assets/hero");
+  console.log("Generating hero assets using Python generator...");
+  execSync(`node scripts/generate-hero.mjs --source "${resolve(source)}" --config "${readFlag("--config") || resolve(repositoryRoot, "profile.config.json")}"`, { stdio: "inherit", cwd: repositoryRoot });
+  
+  const manifest = JSON.parse(await readFile(resolve(heroOutputDir, "manifest.json"), "utf8"));
   await generateRadarAssets({
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")

@@ -194,6 +194,7 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
   </picture>
 </p>
 
+${statsSection}
 <p align="center">
 ${renderLinks(config.links)}
 </p>
@@ -237,7 +238,6 @@ ${techStack}
 </p>
 ${visualsSection}
 ${pacmanSection}
-${statsSection}
 ## GitHub Contributions
 
 <picture>

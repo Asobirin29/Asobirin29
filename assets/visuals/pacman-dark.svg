@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="60" viewBox="0 0 800 60">
   <defs>
     <style>
-      .bg { fill: #062319; fill-opacity: 0.1; }
+      .bg { fill: #061A22; fill-opacity: 0.1; }
       .pacman { fill: #facc15; }
       .ghost-body { fill: #f43f5e; }
       .ghost-eyes { fill: #ffffff; }

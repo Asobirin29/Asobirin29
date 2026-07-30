@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 440 375" role="img">
   <defs>
     <radialGradient id="radar-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#059669" stop-opacity="0.3" />
-      <stop offset="70%" stop-color="#65A30D" stop-opacity="0.1" />
-      <stop offset="100%" stop-color="#D97706" stop-opacity="0" />
+      <stop offset="0%" stop-color="#0F766E" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#4F46E5" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0" />
     </radialGradient>
     <filter id="radar-shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="4" result="blur" />
@@ -11,12 +11,12 @@
     </filter>
   </defs>
   <style>
-    .radar-bg { fill: #FFFFFF; fill-opacity: 0.45; stroke: #D97706; stroke-opacity: 0.25; stroke-width: 1.5; rx: 12px; }
-    .grid-line { fill: none; stroke: #047857; stroke-opacity: 0.3; stroke-width: 0.8; }
-    .skill-poly { fill: url(#radar-glow); stroke: #059669; stroke-width: 2.2; filter: url(#radar-shadow); opacity: 0.88; }
-    .skill-poly-outline { fill: none; stroke: #65A30D; stroke-width: 1; opacity: 0.6; }
-    .label-text { font-family: 'Courier New', Consolas, monospace; font-size: 10.5px; font-weight: 700; fill: #064E3B; }
-    .radar-title { font-family: 'Courier New', Consolas, monospace; font-size: 11px; font-weight: 700; fill: #059669; letter-spacing: 1.5px; }
+    .radar-bg { fill: #FFFFFF; fill-opacity: 0.45; stroke: #0284C7; stroke-opacity: 0.25; stroke-width: 1.5; rx: 12px; }
+    .grid-line { fill: none; stroke: #64748B; stroke-opacity: 0.3; stroke-width: 0.8; }
+    .skill-poly { fill: url(#radar-glow); stroke: #0F766E; stroke-width: 2.2; filter: url(#radar-shadow); opacity: 0.88; }
+    .skill-poly-outline { fill: none; stroke: #4F46E5; stroke-width: 1; opacity: 0.6; }
+    .label-text { font-family: 'Courier New', Consolas, monospace; font-size: 10.5px; font-weight: 700; fill: #123047; }
+    .radar-title { font-family: 'Courier New', Consolas, monospace; font-size: 11px; font-weight: 700; fill: #0F766E; letter-spacing: 1.5px; }
   </style>
   
   <rect x="2" y="2" width="436" height="371" class="radar-bg" />

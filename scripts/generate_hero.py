@@ -148,16 +148,17 @@ def generate_svg(config, dots, palette, mode):
       </linearGradient>
     </defs>
     <style>
-      .panel {{ fill: {palette['panel']}; fill-opacity: 0.8; stroke: {palette['violet']}; stroke-width: 1.5; stroke-opacity: 0.6; }}
-      .text-primary {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
-      .text-muted {{ font-family: monospace; font-size: 14px; fill: {palette['muted']}; }}
-      .text-cyan {{ font-family: monospace; font-size: 14px; font-weight: bold; fill: {palette['cyan']}; }}
-      .header {{ font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['cyan']}; letter-spacing: 2px; }}
-      .pill {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
-      .live {{ font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }}
-      .dots {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
-      .traveller {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
-      @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.2; }} }}
+      .panel { fill: {palette['panel']}; fill-opacity: 0.8; stroke: {palette['cyan']}; stroke-width: 1.5; stroke-opacity: 0.6; }
+      .text-primary { font-family: monospace; font-size: 14px; fill: {palette['primary']}; }
+      .text-muted { font-family: monospace; font-size: 14px; fill: {palette['muted']}; }
+      .text-cyan { font-family: monospace; font-size: 14px; font-weight: bold; fill: {palette['cyan']}; }
+      .text-blue { font-family: monospace; font-size: 14px; fill: {palette['blue']}; }
+      .header { font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['blue']}; letter-spacing: 2px; }
+      .pill { font-family: monospace; font-size: 14px; fill: {palette['primary']}; }
+      .live { font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }
+      .dots { fill: {palette['violet'] if mode == 'dark' else palette['primary']}; }
+      .traveller { fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
       .pulsing {{ animation: pulse 1.8s infinite; }}
     </style>
     """)
@@ -177,8 +178,10 @@ def generate_svg(config, dots, palette, mode):
     
     # Handle Pill
     handle = config.get("profile", {}).get("username", "user")
-    svg.append(f'<rect x="528" y="70" width="{len(handle)*9 + 20}" height="24" rx="12" fill="{palette["violet"]}" opacity="0.2"/>')
-    svg.append(f'<text x="538" y="87" class="pill">@{handle}</text>')
+    handle_email = "arifhasan.connect@gmail.com" if handle == "arifhasxn" else f"{handle}@github.local" # Mocking email for the pill based on screenshot
+    pill_text = handle_email if handle == "arifhasxn" else f"@{handle}"
+    svg.append(f'<rect x="528" y="70" width="{len(pill_text)*8.5 + 20}" height="24" rx="12" fill="{palette["violet"]}" opacity="0.8"/>')
+    svg.append(f'<text x="538" y="87" class="pill">{pill_text}</text>')
     
     # Dots Processing
     coords = np.argwhere(dots) # [y, x]
@@ -300,7 +303,7 @@ def generate_svg(config, dots, palette, mode):
     
     def add_row(label, value):
         nonlocal y_pos
-        svg.append(f'<text x="528" y="{y_pos}" class="text-cyan">- {label}</text>')
+        svg.append(f'<text x="528" y="{y_pos}" class="text-blue">{label}</text>')
         rem_len = 50 - len(label) - len(value)
         if rem_len < 3: rem_len = 3
         dots_str = "." * rem_len
