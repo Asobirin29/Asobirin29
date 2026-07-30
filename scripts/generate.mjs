@@ -20,10 +20,13 @@ if (!source) {
 try {
   const config = await loadConfig(readFlag("--config"));
   const heroOutputDir = resolve(repositoryRoot, "assets/hero");
-  console.log("Generating hero assets using Python generator...");
-  execSync(`node scripts/generate-hero.mjs --source "${resolve(source)}" --config "${readFlag("--config") || resolve(repositoryRoot, "profile.config.json")}"`, { stdio: "inherit", cwd: repositoryRoot });
+  console.log("Generating hero assets using original JS generator...");
+  const manifest = await generateHeroAssets({
+    config,
+    sourcePath: resolve(source.replace(".jpg", ".png")),
+    outputDirectory: heroOutputDir
+  });
   
-  const manifest = JSON.parse(await readFile(resolve(heroOutputDir, "manifest.json"), "utf8"));
   
 
 

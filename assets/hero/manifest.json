@@ -1,8 +1,10 @@
 {
-  "generator": "agent-console-python-v1",
-  "version": "python-919a0084",
+  "generator": "agent-console-v1",
+  "version": "6cc86a76",
   "assets": {
-    "desktopDark": "agent-console-python-919a0084-dark.svg",
-    "desktopLight": "agent-console-python-919a0084-light.svg"
+    "desktopDark": "agent-console-6cc86a76-dark.svg",
+    "desktopLight": "agent-console-6cc86a76-light.svg",
+    "mobileDark": "agent-console-6cc86a76-mobile-dark.svg",
+    "mobileLight": "agent-console-6cc86a76-mobile-light.svg"
   }
 }
