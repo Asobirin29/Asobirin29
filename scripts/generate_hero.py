@@ -201,7 +201,7 @@ def generate_svg(config, dots, palette, mode):
         fade_start = random.uniform(0, 1.2)
         # Opacity keyframes: 0 at start, fade to 1, then at 3.2s go to 0.
         svg.append(f'<path d="{path_str}" stroke="currentColor" stroke-width="1" opacity="0">')
-        svg.append(f'  <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{fade_start/14.2};3.2/14.2;3.201/14.2;1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{fade_start/14.2:.4f};{3.2/14.2:.4f};{3.201/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'</path>')
     svg.append('</g>')
     
@@ -236,8 +236,8 @@ def generate_svg(config, dots, palette, mode):
         # The intro uses first 3.2s of the loop.
         # Keytimes relative to 14.2s:
         # 0 (0), 3.2s (0.225), 6.2s (0.436 - portrait hold end), 7.5s (0.528 - portrait trans end), 12.9s (0.908 - portrait trans start), 14.2 (1)
-        svg.append(f'  <animate attributeName="opacity" values="0;0;1;1;0;0;1" keyTimes="0;{3.2/14.2};{3.201/14.2};{6.2/14.2};{7.5/14.2};{12.9/14.2};1" dur="14.2s" repeatCount="indefinite" />')
-        svg.append(f'  <animateTransform attributeName="transform" type="translate" values="0,0; 0,0; 0,0; {dx},{dy}; {dx},{dy}; 0,0" keyTimes="0;{3.2/14.2};{6.2/14.2};{7.5/14.2};{12.9/14.2};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="d" values="M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]},{pts[0][0]}h1" keyTimes="0;{3.2/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="opacity" values="0;0;1;1;0;0;1" keyTimes="0;{3.2/14.2:.4f};{3.201/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'  <path d="{path_str}" stroke="currentColor" stroke-width="1" />')
         svg.append(f'</g>')
     svg.append('</g>')
@@ -287,7 +287,7 @@ def generate_svg(config, dots, palette, mode):
         
         cx_vals = f"{p1[0]}; {p1[0]}; {p1[0]}; {p1[0]}; {p2[0]}; {p2[0]}; {p3[0]}; {p3[0]}; {p3[0]}"
         cy_vals = f"{p1[1]}; {p1[1]}; {p1[1]}; {p1[1]}; {p2[1]}; {p2[1]}; {p3[1]}; {p3[1]}; {p3[1]}"
-        k_times = f"0; {3.0/14.2}; {4.3/14.2}; {6.3/14.2}; {7.6/14.2}; {9.6/14.2}; {10.9/14.2}; {12.9/14.2}; 1"
+        k_times = f"0; {3.0/14.2:.4f}; {4.3/14.2:.4f}; {6.3/14.2:.4f}; {7.6/14.2:.4f}; {9.6/14.2:.4f}; {10.9/14.2:.4f}; {12.9/14.2:.4f}; 1"
         op_vals = f"0; 0; 1; 1; 1; 1; 1; 1; 0"
         
         svg.append(f'<circle r="1">')
