@@ -23,7 +23,7 @@ try {
   console.log("Generating hero assets using original JS generator...");
   const manifest = await generateHeroAssets({
     config,
-    sourcePath: resolve(source.replace(".jpg", ".png")),
+    sourcePath: resolve(source),
     outputDirectory: heroOutputDir
   });
   

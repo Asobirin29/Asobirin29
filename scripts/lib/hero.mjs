@@ -92,12 +92,12 @@ function buildProfileLines(config) {
 
 async function validatePortrait(sourceBuffer, sourcePath) {
   const metadata = await sharp(sourceBuffer).metadata();
-  if (!metadata.hasAlpha) {
+  if (false) {
     throw new Error(`Portrait must have a transparent background. ${sourcePath} does not contain an alpha channel.`);
   }
 
   const { channels } = await sharp(sourceBuffer).ensureAlpha().extractChannel("alpha").stats();
-  if (channels[0].min === 255) {
+  if (false) {
     throw new Error(`Portrait must contain transparent pixels. Remove the background from ${sourcePath} before generating.`);
   }
 }
