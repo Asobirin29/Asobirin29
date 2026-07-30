@@ -367,8 +367,8 @@ def main():
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     
-    version_string = f"v1-{palette_name}"
-    version = "python-" + hashlib.md5(version_string.encode()).hexdigest()[:8]
+    import uuid
+    version = f"python-{str(uuid.uuid4())[:8]}"
     
     for mode in ['dark', 'light']:
         dots = process_portrait(args.source, mode=mode)
