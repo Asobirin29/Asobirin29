@@ -16,6 +16,14 @@
   </picture>
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/terminal-orange.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/terminal-orange.svg">
+    <img src="./assets/visuals/terminal-orange.svg" alt="Terminal Kucing Oranye" width="100%">
+  </picture>
+</p>
+
 
 ## GitHub Stats
 

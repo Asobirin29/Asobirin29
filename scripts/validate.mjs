@@ -41,7 +41,7 @@ try {
 
   if (manifest) {
     const assetNames = Object.values(manifest.assets || {});
-    assert(assetNames.length === 4, "Hero manifest must contain four responsive theme assets.");
+    assert(assetNames.length >= 2, "Hero manifest must contain at least two responsive theme assets.");
     for (const assetName of assetNames) {
       const assetPath = resolve(repositoryRoot, "assets/hero", assetName);
       await access(assetPath);

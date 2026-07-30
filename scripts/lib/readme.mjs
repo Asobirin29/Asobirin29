@@ -203,6 +203,14 @@ ${aboutManifest ? `
     <img src="${baseRawUrl}/assets/hero/${aboutManifest.assets.dark}" alt="${config.profile.name} - About Me" width="100%">
   </picture>
 </p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="${baseRawUrl}/assets/visuals/terminal-orange.svg">
+    <source media="(prefers-color-scheme: light)" srcset="${baseRawUrl}/assets/visuals/terminal-orange.svg">
+    <img src="${baseRawUrl}/assets/visuals/terminal-orange.svg" alt="Terminal Kucing Oranye" width="100%">
+  </picture>
+</p>
 ` : `
 ## 👨‍💻 About Me
 

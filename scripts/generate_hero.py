@@ -44,7 +44,7 @@ def load_config(config_path):
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def process_portrait(source_path, target_width=300, target_height=340, mode='dark'):
+def process_portrait(source_path, target_width=600, target_height=680, mode='dark'):
     """Process image: crop, resize, contrast, mask, dither"""
     img = Image.open(source_path).convert("RGBA")
     w, h = img.size
@@ -64,8 +64,12 @@ def process_portrait(source_path, target_width=300, target_height=340, mode='dar
     rgb_img = ImageOps.autocontrast(rgb_img, cutoff=1)
     from PIL import ImageEnhance
     enhancer = ImageEnhance.Contrast(rgb_img)
-    rgb_img = enhancer.enhance(1.3)
-    rgb_img = rgb_img.filter(ImageFilter.UnsharpMask(radius=3, percent=140))
+    rgb_img = enhancer.enhance(1.15)
+    
+    gray_for_edges = rgb_img.convert("L")
+    edges = gray_for_edges.filter(ImageFilter.FIND_EDGES)
+    
+    rgb_img = rgb_img.filter(ImageFilter.UnsharpMask(radius=2, percent=150))
     
     np_img = np.array(rgb_img, dtype=np.float32) / 255.0
     corners = [np_img[0,0], np_img[0,-1], np_img[-1,0], np_img[-1,-1]]
@@ -83,11 +87,12 @@ def process_portrait(source_path, target_width=300, target_height=340, mode='dar
     
     gray = rgb_img.convert("L")
     gray_np = np.array(gray, dtype=np.float32) / 255.0
+    edges_np = np.array(edges, dtype=np.float32) / 255.0
     
     if mode == 'dark':
-        val = gray_np
+        val = gray_np + edges_np * 0.7
     else:
-        val = 1.0 - gray_np
+        val = 1.0 - gray_np + edges_np * 0.7
         
     val = np.clip(val, 0, 1)
     
@@ -128,7 +133,7 @@ def process_portrait(source_path, target_width=300, target_height=340, mode='dar
                     
     return dots
 
-def gen_logo_points(shape, num_points=900, center=(150, 170), radius=50):
+def gen_logo_points(shape, num_points=900, center=(300, 340), radius=100):
     """Generate uniformly spaced points on simple shapes for the logos"""
     pts = []
     if shape == 'circle':
@@ -174,8 +179,8 @@ def generate_svg(config, dots, palette, mode):
       .header {{ font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['blue']}; letter-spacing: 2px; }}
       .pill {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
       .live {{ font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }}
-      .dots {{ fill: {palette['violet'] if mode == 'dark' else palette['primary']}; }}
-      .traveller {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
+      .dots {{ fill: {palette['violet'] if mode == 'dark' else palette['primary']}; color: {palette['violet'] if mode == 'dark' else palette['primary']}; }}
+      .traveller {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; color: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
       @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.2; }} }}
       .pulsing {{ animation: pulse 1.8s infinite; }}
     </style>
@@ -209,12 +214,12 @@ def generate_svg(config, dots, palette, mode):
     # 60 interleaved random groups fade in over ~2s
     # Total time 3.2s. 
     intro_groups = 60
-    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128)">')
+    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128) scale(0.5)">')
     for g in range(intro_groups):
         g_coords = coords[g::intro_groups]
         paths = []
         for y, x in g_coords:
-            paths.append(f"M{x},{y}h1")
+            paths.append(f"M{x},{y}h0.5")
         path_str = " ".join(paths)
         fade_start = random.uniform(0, 1.2)
         # Opacity keyframes: 0 at start, fade to 1, then at 3.2s go to 0.
@@ -226,9 +231,9 @@ def generate_svg(config, dots, palette, mode):
     # ==== LOOP LAYER ====
     # Portrait 3.0s, translate 42% toward center + fade out over 1.3s
     # Remain invisible. Translate back + fade in at 12.9 to 14.2s
-    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128)">')
-    cx, cy = 150, 170
-    grid_size = 30
+    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128) scale(0.5)">')
+    cx, cy = 300, 340
+    grid_size = 60
     groups = {}
     for y, x in coords:
         xn, yn = x + random.uniform(-4, 4), y + random.uniform(-4, 4)
@@ -246,7 +251,7 @@ def generate_svg(config, dots, palette, mode):
         
         paths = []
         for x, y in pts:
-            paths.append(f"M{x},{y}h1")
+            paths.append(f"M{x},{y}h0.5")
         path_str = " ".join(paths)
         
         svg.append(f'<g opacity="0">')
@@ -254,7 +259,7 @@ def generate_svg(config, dots, palette, mode):
         # The intro uses first 3.2s of the loop.
         # Keytimes relative to 14.2s:
         # 0 (0), 3.2s (0.225), 6.2s (0.436 - portrait hold end), 7.5s (0.528 - portrait trans end), 12.9s (0.908 - portrait trans start), 14.2 (1)
-        svg.append(f'  <animate attributeName="d" values="M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]},{pts[0][0]}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]+dx},{pts[0][0]+dy}h1; M{pts[0][1]},{pts[0][0]}h1" keyTimes="0;{3.2/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
+        svg.append(f'  <animate attributeName="d" values="M{pts[0][1]},{pts[0][0]}h0.5; M{pts[0][1]},{pts[0][0]}h0.5; M{pts[0][1]},{pts[0][0]}h0.5; M{pts[0][1]+dx},{pts[0][0]+dy}h0.5; M{pts[0][1]+dx},{pts[0][0]+dy}h0.5; M{pts[0][1]},{pts[0][0]}h0.5" keyTimes="0;{3.2/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'  <animate attributeName="opacity" values="0;0;1;1;0;0;1" keyTimes="0;{3.2/14.2:.4f};{3.201/14.2:.4f};{6.2/14.2:.4f};{7.5/14.2:.4f};{12.9/14.2:.4f};1" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'  <path d="{path_str}" stroke="currentColor" stroke-width="1" />')
         svg.append(f'</g>')
@@ -276,7 +281,7 @@ def generate_svg(config, dots, palette, mode):
     row_ind, col_ind = linear_sum_assignment(d23)
     logo3 = logo3[col_ind]
     
-    svg.append(f'<g class="traveller" transform="translate(108, 128)">')
+    svg.append(f'<g class="traveller" transform="translate(108, 128) scale(0.5)">')
     for i in range(num_trav):
         p1 = logo1[i]
         p2 = logo2[i]
@@ -308,7 +313,7 @@ def generate_svg(config, dots, palette, mode):
         k_times = f"0; {3.0/14.2:.4f}; {4.3/14.2:.4f}; {6.3/14.2:.4f}; {7.6/14.2:.4f}; {9.6/14.2:.4f}; {10.9/14.2:.4f}; {12.9/14.2:.4f}; 1"
         op_vals = f"0; 0; 1; 1; 1; 1; 1; 1; 0"
         
-        svg.append(f'<circle r="1">')
+        svg.append(f'<circle r="2">')
         svg.append(f'  <animate attributeName="cx" values="{cx_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'  <animate attributeName="cy" values="{cy_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
         svg.append(f'  <animate attributeName="opacity" values="{op_vals}" keyTimes="{k_times}" dur="14.2s" repeatCount="indefinite" />')
