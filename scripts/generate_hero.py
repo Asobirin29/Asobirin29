@@ -148,17 +148,17 @@ def generate_svg(config, dots, palette, mode):
       </linearGradient>
     </defs>
     <style>
-      .panel { fill: {palette['panel']}; fill-opacity: 0.8; stroke: {palette['cyan']}; stroke-width: 1.5; stroke-opacity: 0.6; }
-      .text-primary { font-family: monospace; font-size: 14px; fill: {palette['primary']}; }
-      .text-muted { font-family: monospace; font-size: 14px; fill: {palette['muted']}; }
-      .text-cyan { font-family: monospace; font-size: 14px; font-weight: bold; fill: {palette['cyan']}; }
-      .text-blue { font-family: monospace; font-size: 14px; fill: {palette['blue']}; }
-      .header { font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['blue']}; letter-spacing: 2px; }
-      .pill { font-family: monospace; font-size: 14px; fill: {palette['primary']}; }
-      .live { font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }
-      .dots { fill: {palette['violet'] if mode == 'dark' else palette['primary']}; }
-      .traveller { fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }
-      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+      .panel {{ fill: {palette['panel']}; fill-opacity: 0.8; stroke: {palette['cyan']}; stroke-width: 1.5; stroke-opacity: 0.6; }}
+      .text-primary {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
+      .text-muted {{ font-family: monospace; font-size: 14px; fill: {palette['muted']}; }}
+      .text-cyan {{ font-family: monospace; font-size: 14px; font-weight: bold; fill: {palette['cyan']}; }}
+      .text-blue {{ font-family: monospace; font-size: 14px; fill: {palette['blue']}; }}
+      .header {{ font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['blue']}; letter-spacing: 2px; }}
+      .pill {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
+      .live {{ font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }}
+      .dots {{ fill: {palette['violet'] if mode == 'dark' else palette['primary']}; }}
+      .traveller {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
+      @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.2; }} }}
       .pulsing {{ animation: pulse 1.8s infinite; }}
     </style>
     """)

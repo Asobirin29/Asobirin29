@@ -9,6 +9,22 @@
   </picture>
 </p>
 
+
+## GitHub Stats
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=02131a&title_color=2dd4bf&text_color=e5f6f8&icon_color=38bdf8&hide_border=true">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=f4fcfc&title_color=0f766e&text_color=123047&icon_color=0284c7&hide_border=true">
+    <img src="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=02131a&title_color=2dd4bf&text_color=e5f6f8&icon_color=38bdf8&hide_border=true" alt="GitHub Stats" width="49%">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=02131a&ring=2dd4bf&fire=6366f1&currStreakNum=e5f6f8&sideNums=64748b&sideLabels=e5f6f8&dates=64748b&hide_border=true">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=f4fcfc&ring=0f766e&fire=4f46e5&currStreakNum=123047&sideNums=64748b&sideLabels=123047&dates=64748b&hide_border=true">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=02131a&ring=2dd4bf&fire=6366f1&currStreakNum=e5f6f8&sideNums=64748b&sideLabels=e5f6f8&dates=64748b&hide_border=true" alt="GitHub Streak" width="49%">
+  </picture>
+</p>
+
 <p align="center">
   <a href="https://github.com/Asobirin29"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Asobirin29-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
@@ -75,22 +91,6 @@
     <source media="(prefers-color-scheme: dark)" srcset="./assets/visuals/pacman-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/visuals/pacman-light.svg">
     <img alt="Pacman Animation" src="./assets/visuals/pacman-dark.svg" width="100%">
-  </picture>
-</p>
-
-
-## GitHub Stats
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=02131a&title_color=2dd4bf&text_color=e5f6f8&icon_color=38bdf8&hide_border=true">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=f4fcfc&title_color=0f766e&text_color=123047&icon_color=0284c7&hide_border=true">
-    <img src="https://github-stats-extended.vercel.app/api?username=Asobirin29&show_icons=true&bg_color=02131a&title_color=2dd4bf&text_color=e5f6f8&icon_color=38bdf8&hide_border=true" alt="GitHub Stats" width="49%">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=02131a&ring=2dd4bf&fire=6366f1&currStreakNum=e5f6f8&sideNums=64748b&sideLabels=e5f6f8&dates=64748b&hide_border=true">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=f4fcfc&ring=0f766e&fire=4f46e5&currStreakNum=123047&sideNums=64748b&sideLabels=123047&dates=64748b&hide_border=true">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Asobirin29&background=02131a&ring=2dd4bf&fire=6366f1&currStreakNum=e5f6f8&sideNums=64748b&sideLabels=e5f6f8&dates=64748b&hide_border=true" alt="GitHub Streak" width="49%">
   </picture>
 </p>
 
