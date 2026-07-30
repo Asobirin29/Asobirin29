@@ -150,7 +150,7 @@ function renderVisuals(config) {
   return `\n## Interactive Maps & Status\n${content}\n`;
 }
 
-export async function generateProfileReadme({ config, manifest, manifestGreen, aboutManifest, readmePath }) {
+export async function generateProfileReadme({ config, manifest, aboutManifest, readmePath }) {
   const existingActivity = await readExistingActivity(readmePath);
   const activity = existingActivity || "_Recent public activity will appear here after the workflow runs._";
   const activitySection = config.activity.enabled
@@ -194,15 +194,7 @@ export async function generateProfileReadme({ config, manifest, manifestGreen, a
     <img src="${baseRawUrl}/assets/hero/${manifest.assets.desktopDark}" alt="${config.profile.name} - ${config.profile.headline}" width="100%">
   </picture>
 </p>
-${manifestGreen ? `
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="${baseRawUrl}/assets/hero/${manifestGreen.assets.desktopDark}">
-    <source media="(prefers-color-scheme: light)" srcset="${baseRawUrl}/assets/hero/${manifestGreen.assets.desktopLight}">
-    <img src="${baseRawUrl}/assets/hero/${manifestGreen.assets.desktopDark}" alt="${config.profile.name} - Secondary Hero" width="100%">
-  </picture>
-</p>
-` : ""}
+
 ${aboutManifest ? `
 <p align="center">
   <picture>
@@ -274,3 +266,4 @@ ${activitySection}${jokeSection}
   await writeFile(resolve(readmePath), readme);
   return readme;
 }
+

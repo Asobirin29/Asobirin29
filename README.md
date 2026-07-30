@@ -7,14 +7,6 @@
   </picture>
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-python-340b25c4-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-python-340b25c4-light.svg">
-    <img src="./assets/hero/agent-console-python-340b25c4-dark.svg" alt="Ahmad Sobirin - Secondary Hero" width="100%">
-  </picture>
-</p>
-
 
 <p align="center">
   <picture>
