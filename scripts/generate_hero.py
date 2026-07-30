@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import sys
+import html
+
 import json
 import argparse
 import hashlib
@@ -155,40 +157,49 @@ def generate_svg(config, dots, palette, mode):
     w, h = 1180, 610
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">']
     
-    # Base layout and styles matching arifhaxn's dark.svg
+    # Base layout and styles
     svg.append(f"""
     <defs>
-      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="{palette['violet']}"><animate attributeName="stop-color" values="{palette['violet']};{palette['cyan']};{palette['green']};{palette['violet']}" dur="10s" repeatCount="indefinite"/></stop>
-        <stop offset="0.5" stop-color="{palette['cyan']}"><animate attributeName="stop-color" values="{palette['cyan']};{palette['green']};{palette['violet']};{palette['cyan']}" dur="10s" repeatCount="indefinite"/></stop>
-        <stop offset="1" stop-color="{palette['green']}"><animate attributeName="stop-color" values="{palette['green']};{palette['violet']};{palette['cyan']};{palette['green']}" dur="10s" repeatCount="indefinite"/></stop>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="{palette['bg_start']}"/>
+        <stop offset="1" stop-color="{palette['bg_end']}"/>
       </linearGradient>
-      <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{palette['bg_start']}"/><stop offset="1" stop-color="{palette['bg_end']}"/></linearGradient>
-      <filter id="glow8" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8"/></filter>
-      <filter id="glow3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
-      <clipPath id="winClip"><rect x="2" y="2" width="1176" height="606" rx="18"/></clipPath>
     </defs>
-    
-    <rect x="2" y="2" width="1176" height="606" rx="18" fill="#070B16"/>
-    <g clip-path="url(#winClip)">
-      <rect x="2" y="2" width="1176" height="606" fill="url(#panelGrad)"/>
-      <rect x="2" y="2" width="1176" height="46" fill="#0B1222"/>
-      <line x1="2" y1="48" x2="1178" y2="48" stroke="rgba(255,255,255,0.10)"/>
-      
-      <circle cx="30" cy="25.0" r="5.5" fill="#ff5f56"/>
-      <circle cx="50" cy="25.0" r="5.5" fill="#ffbd2e"/>
-      <circle cx="70" cy="25.0" r="5.5" fill="#27c93f"/>
-      
-      <text x="590.0" y="29.0" text-anchor="middle" font-family="monospace" font-size="12" fill="{palette['muted']}">user@github.local - % ./profile.sh --live</text>
-      
-      <text x="38" y="74" font-family="monospace" font-size="10" letter-spacing="3" fill="#475569">VISUAL.MAP</text>
-      <rect x="36" y="84" width="400" height="492" rx="10" fill="none" stroke="{palette['cyan']}" stroke-width="2" opacity="0.45" filter="url(#glow3)"/>
-      <rect x="36" y="84" width="400" height="492" rx="10" fill="{palette['bg_start']}" stroke="rgba(34,211,238,0.35)"/>
+    <style>
+      .panel {{ fill: {palette['panel']}; fill-opacity: 0.8; stroke: {palette['cyan']}; stroke-width: 1.5; stroke-opacity: 0.6; }}
+      .text-primary {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
+      .text-muted {{ font-family: monospace; font-size: 14px; fill: {palette['muted']}; }}
+      .text-cyan {{ font-family: monospace; font-size: 14px; font-weight: bold; fill: {palette['cyan']}; }}
+      .text-blue {{ font-family: monospace; font-size: 14px; fill: {palette['blue']}; }}
+      .header {{ font-family: monospace; font-size: 13px; font-weight: bold; fill: {palette['blue']}; letter-spacing: 2px; }}
+      .pill {{ font-family: monospace; font-size: 14px; fill: {palette['primary']}; }}
+      .live {{ font-family: monospace; font-size: 12px; font-weight: bold; fill: {palette['red']}; letter-spacing: 1px; }}
+      .dots {{ fill: {palette['violet'] if mode == 'dark' else palette['primary']}; }}
+      .traveller {{ fill: {palette['cyan'] if mode == 'dark' else palette['primary']}; }}
+      @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.2; }} }}
+      .pulsing {{ animation: pulse 1.8s infinite; }}
+    </style>
     """)
     
-    # We apply a scale transformation for the portrait to fit nicely in the 400x492 frame.
-    # The portrait points are generated assuming the top-left starts at 0,0 but we can just
-    # wrap them in a group that scales and positions them correctly inside the frame.
+    svg.append(f'<rect width="{w}" height="{h}" fill="url(#bg)" rx="18"/>')
+    svg.append(f'<rect x="14" y="64" width="488" height="468" class="panel" rx="14"/>')
+    svg.append(f'<rect x="508" y="48" width="655" height="500" class="panel" rx="14"/>')
+    
+    svg.append(f'<text x="30" y="62" class="header">VISUAL.MAP</text>')
+    svg.append(f'<text x="524" y="62" class="header">SYSTEM.INFO</text>')
+    
+    svg.append(f'<text x="3" y="25" class="text-muted" style="letter-spacing: 0.5px;">profile.sh --live</text>')
+    
+    # LIVE badge
+    svg.append(f'<circle cx="1120" cy="20" r="4" class="pulsing" fill="{palette["red"]}"/>')
+    svg.append(f'<text x="1132" y="24" class="live">SCANNING</text>')
+    
+    # Handle Pill
+    handle = html.escape(str(config.get("profile", {}).get("username", "user")))
+    handle_email = "arifhasan.connect@gmail.com" if handle == "arifhasxn" else f"{handle}@github.local" # Mocking email for the pill based on screenshot
+    pill_text = handle_email if handle == "arifhasxn" else f"@{handle}"
+    svg.append(f'<rect x="528" y="70" width="{len(pill_text)*8.5 + 20}" height="24" rx="12" fill="{palette["violet"]}" opacity="0.8"/>')
+    svg.append(f'<text x="538" y="87" class="pill">{pill_text}</text>')
     
     # Dots Processing
     coords = np.argwhere(dots) # [y, x]
@@ -198,9 +209,7 @@ def generate_svg(config, dots, palette, mode):
     # 60 interleaved random groups fade in over ~2s
     # Total time 3.2s. 
     intro_groups = 60
-    # Center the dots inside the new 400x492 portrait frame at (36,84)
-    # The dot field was generated at max 300x340. Scale it a bit and center it.
-    svg.append(f'<g transform="translate(50, 100) scale(1.15, 1.15)" fill="{palette["violet"]}" shape-rendering="crispEdges">')
+    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128)">')
     for g in range(intro_groups):
         g_coords = coords[g::intro_groups]
         paths = []
@@ -217,7 +226,7 @@ def generate_svg(config, dots, palette, mode):
     # ==== LOOP LAYER ====
     # Portrait 3.0s, translate 42% toward center + fade out over 1.3s
     # Remain invisible. Translate back + fade in at 12.9 to 14.2s
-    svg.append(f'<g fill="{palette["violet"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    svg.append(f'<g shape-rendering="crispEdges" class="dots" transform="translate(108, 128)">')
     cx, cy = 150, 170
     grid_size = 30
     groups = {}
@@ -267,7 +276,7 @@ def generate_svg(config, dots, palette, mode):
     row_ind, col_ind = linear_sum_assignment(d23)
     logo3 = logo3[col_ind]
     
-    svg.append(f'<g fill="{palette["cyan"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    svg.append(f'<g class="traveller" transform="translate(108, 128)">')
     for i in range(num_trav):
         p1 = logo1[i]
         p2 = logo2[i]
@@ -307,56 +316,39 @@ def generate_svg(config, dots, palette, mode):
     svg.append('</g>')
     
     # ==== SYSTEM INFO TEXT ====
-    # Using the beautiful animated rows from dark.svg
     y_pos = 120
-    delay_start = 0.5
+    spacing = 23
     
-    svg.append(f'<g font-family="monospace">')
-    svg.append(f'<text x="470" y="80" font-size="10" letter-spacing="3" fill="#475569">SYSTEM.INFO</text>')
     
-    import html
-    def add_animated_row(label, value, is_header=False):
+    def add_row(label, value):
         label = html.escape(str(label))
         value = html.escape(str(value))
-        nonlocal y_pos, delay_start
-        if is_header:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["muted"]}">- {label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">---------------------------------------------------------------------</tspan></text></g>')
-        else:
-            svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur="0.4s" begin="{delay_start:.2f}s" fill="freeze"/><text x="470" y="{y_pos}" font-size="14" textLength="655" lengthAdjust="spacingAndGlyphs" xml:space="preserve"><tspan fill="{palette["cyan"]}">{label} </tspan><tspan fill="{palette["muted"]}" opacity="0.35">..........................................................</tspan><tspan fill="{palette["primary"]}" font-weight="600"> {value}</tspan></text></g>')
-        y_pos += 23
-        delay_start += 0.12
+        nonlocal y_pos
+        svg.append(f'<text x="528" y="{y_pos}" class="text-blue">{label}</text>')
+        rem_len = 50 - len(label) - len(value)
+        if rem_len < 3: rem_len = 3
+        dots_str = "." * rem_len
+        svg.append(f'<text x="{528 + 15 + len(label)*8.5}" y="{y_pos}" class="text-muted" textLength="{rem_len*8.5}" lengthAdjust="spacingAndGlyphs">{dots_str}</text>')
+        svg.append(f'<text x="{528 + 15 + len(label)*8.5 + rem_len*8.5 + 10}" y="{y_pos}" class="text-primary">{value}</text>')
+        y_pos += spacing
         
     profile = config.get("profile", {})
-    add_animated_row("Subject", profile.get("name", "user"))
-    add_animated_row("Role", profile.get("headline", ""))
-    add_animated_row("Origin", profile.get("location", ""))
-    add_animated_row("Education", profile.get("education", ""))
-    add_animated_row("Status", profile.get("status", ""))
+    add_row("Subject", profile.get("name", ""))
+    add_row("Role", profile.get("headline", ""))
+    add_row("Origin", profile.get("location", ""))
+    add_row("Education", profile.get("education", ""))
+    add_row("Status", profile.get("status", ""))
     
-    y_pos += 8
-    add_animated_row("Toolchain", "", is_header=True)
+    y_pos += 15
     toolchain = config.get("toolchain", {})
     for k, v in toolchain.items():
-        add_animated_row(f"Core.{k.capitalize()}", v)
+        add_row(f"Core.{k.capitalize()}", v)
         
-    y_pos += 8
-    add_animated_row("Links", "", is_header=True)
+    y_pos += 15
     grid = config.get("grid", {})
     for k, v in grid.items():
-        add_animated_row(f"Grid.{k.capitalize()}", v)
+        add_row(f"Grid.{k.capitalize()}", v)
         
-    # Final pulsing text
-    delay_start += 0.2
-    svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{delay_start:.2f}s" fill="freeze"/>')
-    svg.append(f'<text x="470" y="{y_pos + 15}" font-size="14" fill="{palette["muted"]}">&#9656; Keep scrolling for more stats &amp; projects &#8595; <tspan fill="{palette["cyan"]}">&#9608;<animate attributeName="fill-opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>')
-    svg.append('</g>')
-    
-    svg.append('</g>')
-    
-    svg.append('</g>') # close clip-path
-    svg.append(f'<rect x="3" y="3" width="1174" height="604" rx="17" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.55" filter="url(#glow8)"/>')
-    svg.append(f'<rect x="3" y="3" width="1174" height="604" rx="17" fill="none" stroke="url(#accent)" stroke-width="1.6"/>')
-    
     svg.append("</svg>")
     return "\n".join(svg)
 
