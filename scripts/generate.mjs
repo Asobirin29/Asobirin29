@@ -30,8 +30,8 @@ try {
   
 
 
-  // Generate About Me terminal (blue terminal)
-  console.log("Generating About Me terminal (blue)...");
+  // Generate About Me terminal (neon red)
+  console.log("Generating About Me terminal (neon red)...");
   const pythonExe = resolve(repositoryRoot, ".venv/Scripts/python.exe");
   const configPath = readFlag("--config") || resolve(repositoryRoot, "profile.config.json");
   execSync(`"${pythonExe}" scripts/generate_about.py --config "${configPath}" --outdir "${heroOutputDir}"`, { stdio: "inherit", cwd: repositoryRoot });

@@ -9,40 +9,40 @@ import argparse
 import hashlib
 from pathlib import Path
 
-GENERATOR_VERSION = "about-terminal-v1"
+GENERATOR_VERSION = "about-terminal-v2-neon"
 
 PALETTES = {
     "dark": {
-        "bg":         "#070B16",
-        "bg_panel":   "#0A101F",
-        "border":     "#3B82F6",   # blue border
-        "title":      "#60A5FA",   # light blue
-        "label":      "#38BDF8",   # cyan-blue
+        "bg":         "#0A0505",
+        "bg_panel":   "#120505",
+        "border":     "#E11D48",   # neon rose/red border
+        "title":      "#FDA4AF",
+        "label":      "#FB7185",
         "value":      "#F8FAFC",
         "muted":      "#64748B",
-        "header_sep": "#1E3A5F",
-        "cursor":     "#60A5FA",
+        "header_sep": "#4C0519",
+        "cursor":     "#FDA4AF",
         "green_dot":  "#27c93f",
         "yellow_dot": "#ffbd2e",
         "red_dot":    "#ff5f56",
-        "section":    "#1D4ED8",   # blue section headers
-        "section_txt":"#93C5FD",
+        "section":    "#BE123C",
+        "section_txt":"#FECDD3",
     },
     "light": {
-        "bg":         "#F0F7FF",
-        "bg_panel":   "#DBEAFE",
-        "border":     "#2563EB",
-        "title":      "#1D4ED8",
-        "label":      "#0284C7",
-        "value":      "#172554",
-        "muted":      "#64748B",
-        "header_sep": "#BFDBFE",
-        "cursor":     "#2563EB",
+        "bg":         "#FFF1F2",
+        "bg_panel":   "#FFE4E6",
+        "border":     "#E11D48",
+        "title":      "#BE123C",
+        "label":      "#E11D48",
+        "value":      "#4C0519",
+        "muted":      "#94A3B8",
+        "header_sep": "#FECDD3",
+        "cursor":     "#E11D48",
         "green_dot":  "#16a34a",
         "yellow_dot": "#ca8a04",
         "red_dot":    "#dc2626",
-        "section":    "#2563EB",
-        "section_txt":"#1D4ED8",
+        "section":    "#BE123C",
+        "section_txt":"#881337",
     }
 }
 
@@ -68,9 +68,9 @@ def build_about_svg(config, palette, mode):
     <stop offset="1" stop-color="{p['bg_panel']}"/>
   </linearGradient>
   <linearGradient id="aaccent" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#1D4ED8"><animate attributeName="stop-color" values="#1D4ED8;#3B82F6;#60A5FA;#1D4ED8" dur="8s" repeatCount="indefinite"/></stop>
-    <stop offset="0.5" stop-color="#3B82F6"><animate attributeName="stop-color" values="#3B82F6;#60A5FA;#1D4ED8;#3B82F6" dur="8s" repeatCount="indefinite"/></stop>
-    <stop offset="1" stop-color="#60A5FA"><animate attributeName="stop-color" values="#60A5FA;#1D4ED8;#3B82F6;#60A5FA" dur="8s" repeatCount="indefinite"/></stop>
+    <stop offset="0" stop-color="#E11D48"><animate attributeName="stop-color" values="#E11D48;#F43F5E;#FB7185;#E11D48" dur="8s" repeatCount="indefinite"/></stop>
+    <stop offset="0.5" stop-color="#F43F5E"><animate attributeName="stop-color" values="#F43F5E;#FB7185;#E11D48;#F43F5E" dur="8s" repeatCount="indefinite"/></stop>
+    <stop offset="1" stop-color="#FB7185"><animate attributeName="stop-color" values="#FB7185;#E11D48;#F43F5E;#FB7185" dur="8s" repeatCount="indefinite"/></stop>
   </linearGradient>
   <filter id="aglow3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
   <filter id="aglow8" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8"/></filter>
@@ -98,9 +98,9 @@ def build_about_svg(config, palette, mode):
 
     # ── LEFT PANEL: About section ──────────────────────────────────────────
     lx, ly_top, lw, lh = 36, 60, 448, 526
-    lines.append(f'<text x="{lx+2}" y="{ly_top-2}" font-family="monospace" font-size="10" letter-spacing="3" fill="#1E3A5F">ABOUT.ME</text>')
+    lines.append(f'<text x="{lx+2}" y="{ly_top-2}" font-family="monospace" font-size="10" letter-spacing="3" fill="{p["muted"]}">ABOUT.ME</text>')
     lines.append(f'<rect x="{lx}" y="{ly_top+4}" width="{lw}" height="{lh}" rx="10" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.45" filter="url(#aglow3)"/>')
-    lines.append(f'<rect x="{lx}" y="{ly_top+4}" width="{lw}" height="{lh}" rx="10" fill="#050C1F" stroke="rgba(59,130,246,0.30)"/>')
+    lines.append(f'<rect x="{lx}" y="{ly_top+4}" width="{lw}" height="{lh}" rx="10" fill="{p["bg_panel"]}" stroke="{p["border"]}" stroke-opacity="0.30"/>')
 
     cy = ly_top + 34
     delay = 0.1
@@ -194,9 +194,9 @@ def build_about_svg(config, palette, mode):
 
     # ── RIGHT PANEL: Skills & Contact ─────────────────────────────────────
     rx, ry_top, rw, rh = 502, 60, 650, 526
-    lines.append(f'<text x="{rx+2}" y="{ry_top-2}" font-family="monospace" font-size="10" letter-spacing="3" fill="#1E3A5F">SYSTEM.STACK</text>')
+    lines.append(f'<text x="{rx+2}" y="{ry_top-2}" font-family="monospace" font-size="10" letter-spacing="3" fill="{p["muted"]}">SYSTEM.STACK</text>')
     lines.append(f'<rect x="{rx}" y="{ry_top+4}" width="{rw}" height="{rh}" rx="10" fill="none" stroke="{p["border"]}" stroke-width="2" opacity="0.45" filter="url(#aglow3)"/>')
-    lines.append(f'<rect x="{rx}" y="{ry_top+4}" width="{rw}" height="{rh}" rx="10" fill="#050C1F" stroke="rgba(59,130,246,0.30)"/>')
+    lines.append(f'<rect x="{rx}" y="{ry_top+4}" width="{rw}" height="{rh}" rx="10" fill="{p["bg_panel"]}" stroke="{p["border"]}" stroke-opacity="0.30"/>')
 
     rcy = ry_top + 30
 
@@ -277,7 +277,7 @@ def main():
         config = json.load(f)
 
     # Hash config for versioning
-    config_hash = hashlib.md5(json.dumps(config, sort_keys=True).encode()).hexdigest()[:8]
+    config_hash = hashlib.md5((json.dumps(config, sort_keys=True) + GENERATOR_VERSION).encode()).hexdigest()[:8]
     version = f"about-{config_hash}"
 
     outdir = Path(args.outdir)
