@@ -26,7 +26,7 @@ def load_config(config_path):
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def process_portrait(source_path, target_width=300, target_height=340, mode='dark'):
+def process_portrait(source_path, target_width=150, target_height=170, mode='dark'):
     """Process image: crop, resize, contrast, mask, dither"""
     img = Image.open(source_path).convert("RGBA")
     w, h = img.size
@@ -181,10 +181,10 @@ def generate_svg(config, dots, palette, mode):
     # ==== INTRO LAYER ====
     # 60 interleaved random groups fade in over ~2s
     # Total time 3.2s. 
-    intro_groups = 60
+    intro_groups = 20
     # Center the dots inside the new 400x492 portrait frame at (36,84)
-    # The dot field was generated at max 300x340. Scale it a bit and center it.
-    svg.append(f'<g transform="translate(50, 100) scale(1.15, 1.15)" fill="{palette["violet"]}" shape-rendering="crispEdges">')
+    # Dot field is 150x170. Scale up 2.3x to fill the frame nicely.
+    svg.append(f'<g transform="translate(46, 96) scale(2.3, 2.3)" fill="{palette["violet"]}" shape-rendering="crispEdges">')
     for g in range(intro_groups):
         g_coords = coords[g::intro_groups]
         paths = []
@@ -201,7 +201,7 @@ def generate_svg(config, dots, palette, mode):
     # ==== LOOP LAYER ====
     # Portrait 3.0s, translate 42% toward center + fade out over 1.3s
     # Remain invisible. Translate back + fade in at 12.9 to 14.2s
-    svg.append(f'<g fill="{palette["violet"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    svg.append(f'<g fill="{palette["violet"]}" shape-rendering="crispEdges" transform="translate(46, 96) scale(2.3, 2.3)">')
     cx, cy = 150, 170
     grid_size = 30
     groups = {}
@@ -251,7 +251,7 @@ def generate_svg(config, dots, palette, mode):
     row_ind, col_ind = linear_sum_assignment(d23)
     logo3 = logo3[col_ind]
     
-    svg.append(f'<g fill="{palette["cyan"]}" shape-rendering="crispEdges" transform="translate(50, 100) scale(1.15, 1.15)">')
+    svg.append(f'<g fill="{palette["cyan"]}" shape-rendering="crispEdges" transform="translate(46, 96) scale(2.3, 2.3)">')
     for i in range(num_trav):
         p1 = logo1[i]
         p2 = logo2[i]
