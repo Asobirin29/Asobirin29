@@ -9,6 +9,7 @@ import { generateVisualizerAssets } from "./lib/visualizer.mjs";
 import { generatePacmanAssets } from "./lib/pacman.mjs";
 import { execSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 const source = readFlag("--source");
 if (!source) {
@@ -23,6 +24,14 @@ try {
   execSync(`node scripts/generate-hero.mjs --source "${resolve(source)}" --config "${readFlag("--config") || resolve(repositoryRoot, "profile.config.json")}"`, { stdio: "inherit", cwd: repositoryRoot });
   
   const manifest = JSON.parse(await readFile(resolve(heroOutputDir, "manifest.json"), "utf8"));
+  
+  let manifestGreen = null;
+  const greenConfigPath = resolve(repositoryRoot, "profile-green.config.json");
+  if (existsSync(greenConfigPath)) {
+    console.log("Generating green hero assets using Python generator...");
+    execSync(`node scripts/generate-hero.mjs --source "${resolve(source)}" --config "${greenConfigPath}"`, { stdio: "inherit", cwd: repositoryRoot });
+    manifestGreen = JSON.parse(await readFile(resolve(heroOutputDir, "manifest.json"), "utf8"));
+  }
   await generateRadarAssets({
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
@@ -35,7 +44,7 @@ try {
     config,
     outputDirectory: resolve(repositoryRoot, "assets/visuals")
   });
-  await generateProfileReadme({ config, manifest, readmePath: resolve(repositoryRoot, "README.md") });
+  await generateProfileReadme({ config, manifest, manifestGreen, readmePath: resolve(repositoryRoot, "README.md") });
   console.log(`Profile generated successfully (asset version ${manifest.version}).`);
 } catch (error) {
   console.error(error.message);

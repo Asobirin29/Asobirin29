@@ -149,7 +149,7 @@ function renderVisuals(config) {
   return `\n## Interactive Maps & Status\n${content}\n`;
 }
 
-export async function generateProfileReadme({ config, manifest, readmePath }) {
+export async function generateProfileReadme({ config, manifest, manifestGreen, readmePath }) {
   const existingActivity = await readExistingActivity(readmePath);
   const activity = existingActivity || "_Recent public activity will appear here after the workflow runs._";
   const activitySection = config.activity.enabled
@@ -193,7 +193,17 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
     <img src="./assets/hero/${manifest.assets.desktopDark}" alt="${config.profile.name} - ${config.profile.headline}" width="100%">
   </picture>
 </p>
-
+${manifestGreen ? `
+<p align="center">
+  <picture>
+    <source media="(max-width: 760px) and (prefers-color-scheme: dark)" srcset="./assets/hero/${manifestGreen.assets.mobileDark}">
+    <source media="(max-width: 760px)" srcset="./assets/hero/${manifestGreen.assets.mobileLight}">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/${manifestGreen.assets.desktopDark}">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/${manifestGreen.assets.desktopLight}">
+    <img src="./assets/hero/${manifestGreen.assets.desktopDark}" alt="${config.profile.name} - Secondary Hero" width="100%">
+  </picture>
+</p>
+` : ""}
 ${statsSection}
 <p align="center">
 ${renderLinks(config.links)}

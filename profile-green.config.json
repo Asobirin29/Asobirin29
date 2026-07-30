@@ -1,0 +1,146 @@
+{
+  "$schema": "./profile.schema.json",
+  "profile": {
+    "name": "Ahmad Sobirin",
+    "username": "Asobirin29",
+    "headline": "Software Engineer & Builder",
+    "affiliation": "Independent Builder",
+    "location": "Indonesia",
+    "status": "Learning / Building / Shipping",
+    "education": "University of Indonesia",
+    "about": [
+      "I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.",
+      "My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works."
+    ]
+  },
+  "toolchain": {
+    "lang": "Python, TypeScript, PHP",
+    "frontend": "React, TailwindCSS",
+    "backend": "Node.js, Express, F3",
+    "database": "MySQL, MongoDB",
+    "infra": "Docker, GitHub Actions"
+  },
+  "grid": {
+    "mail": "ahmad@example.com",
+    "portfolio": "asobirin.com",
+    "linkedin": "in/asobirin",
+    "github": "Asobirin29",
+    "facebook": "fb.me/asobirin"
+  },
+  "research": {
+    "primary": "AI Agents",
+    "direction": "Reliable autonomous systems",
+    "themes": "Tool use / evaluation / human control",
+    "narrative": "I am interested in systems that can observe state, use tools, evaluate outcomes, and take bounded actions with clear evidence and human oversight."
+  },
+  "focus": [
+    {
+      "name": "AI Agents",
+      "description": "Autonomous workflows, tool use, evaluation, and reliable agent behavior."
+    },
+    {
+      "name": "Applied AI",
+      "description": "Turning model capabilities into useful and testable software systems."
+    },
+    {
+      "name": "Developer Tools",
+      "description": "Better workflows for building, testing, and operating modern software."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ALISA",
+      "url": "https://github.com/Asobirin29/ALISA",
+      "homepage": "",
+      "focus": "IT Helpdesk",
+      "summary": "Real-time chat-based IT support ticketing system with SLA tracking, calendar scheduling, and automated category-based routing built with F3 & MySQL.",
+      "heroLabel": "IT Support System"
+    },
+    {
+      "name": "Finvas",
+      "url": "https://github.com/Asobirin29/Finvas",
+      "homepage": "",
+      "focus": "Finance & Invoicing",
+      "summary": "Web-based billing and bookkeeping application with virtual account payments integration, automated invoice generation, and financial reporting.",
+      "heroLabel": "Financial System"
+    },
+    {
+      "name": "LSCS",
+      "url": "https://github.com/Asobirin29/Lscs",
+      "homepage": "",
+      "focus": "School Portal & SIS",
+      "summary": "Comprehensive school portal and Student Information System with enrollment, tuition verification, parent/teacher portals, and custom QR ID card generator.",
+      "heroLabel": "EdTech Platform"
+    },
+    {
+      "name": "Perjakin",
+      "url": "https://github.com/Asobirin29/perjakin",
+      "homepage": "",
+      "focus": "Performance Monitoring",
+      "summary": "Administrative application for government agencies to document performance agreements (KPIs) and monitor monthly or quarterly achievements.",
+      "heroLabel": "GovTech Monitor"
+    },
+    {
+      "name": "Selport",
+      "url": "https://github.com/Asobirin29/selport",
+      "homepage": "",
+      "focus": "Laboratory Customer Portal",
+      "summary": "Laboratory portal for calibration & certification service requests. Handles service status tracking, payment commitments, and PDF certificate delivery.",
+      "heroLabel": "Service Operations"
+    },
+    {
+      "name": "SIPEMBANTU",
+      "url": "https://github.com/Asobirin29/SIPEMBANTU",
+      "homepage": "",
+      "focus": "Domestic Helper Agency",
+      "summary": "Domestic helper agency directory & placement tracker. Provides helper matchmaking, vacancy listings, placement tracking, and OTP verification APIs.",
+      "heroLabel": "Agency Marketplace"
+    }
+  ],
+  "techStack": [
+    "PHP",
+    "JavaScript",
+    "Node.js",
+    "TypeScript",
+    "Python",
+    "React",
+    "MongoDB"
+  ],
+  "links": [
+    {
+      "label": "GitHub",
+      "value": "Asobirin29",
+      "url": "https://github.com/Asobirin29",
+      "logo": "github",
+      "color": "0B1220"
+    }
+  ],
+  "activity": {
+    "enabled": true,
+    "limit": 6
+  },
+  "joke": {
+    "enabled": true
+  },
+  "pacman": {
+    "enabled": true
+  },
+  "skillsRadar": {
+    "enabled": true,
+    "skills": {
+      "PHP": 80,
+      "JavaScript": 90,
+      "Node.js": 85,
+      "TypeScript": 85,
+      "Python": 75,
+      "React": 80
+    }
+  },
+  "musicVisualizer": {
+    "enabled": true
+  },
+  "appearance": {
+    "palette": "emerald"
+  },
+  "footer": "Building thoughtful systems and sharing what works."
+}

@@ -3,9 +3,19 @@
   <picture>
     <source media="(max-width: 760px) and (prefers-color-scheme: dark)" srcset="./assets/hero/undefined">
     <source media="(max-width: 760px)" srcset="./assets/hero/undefined">
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-python-6654c734-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-python-6654c734-light.svg">
-    <img src="./assets/hero/agent-console-python-6654c734-dark.svg" alt="Ahmad Sobirin - Software Engineer & Builder" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-python-46432116-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-python-46432116-light.svg">
+    <img src="./assets/hero/agent-console-python-46432116-dark.svg" alt="Ahmad Sobirin - Software Engineer & Builder" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(max-width: 760px) and (prefers-color-scheme: dark)" srcset="./assets/hero/undefined">
+    <source media="(max-width: 760px)" srcset="./assets/hero/undefined">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-python-a4883ae3-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-python-a4883ae3-light.svg">
+    <img src="./assets/hero/agent-console-python-a4883ae3-dark.svg" alt="Ahmad Sobirin - Secondary Hero" width="100%">
   </picture>
 </p>
 
