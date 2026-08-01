@@ -125,9 +125,11 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Can I tell you a TCP joke?"
-"Please tell me a TCP joke."
-"OK, I'll tell you a TCP joke."
+> How do you tell HTML from HTML5?
+- Try it out in Internet Explorer
+- Did it work?
+- No?
+- It's HTML5.
 <!-- AUTO:JOKE:END -->
 
 ---
