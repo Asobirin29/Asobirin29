@@ -125,11 +125,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> How do you tell HTML from HTML5?
-- Try it out in Internet Explorer
-- Did it work?
-- No?
-- It's HTML5.
+> Eight bytes walk into a bar.
+The bartender asks, "Can I get you anything?"
+"Yeah," reply the bytes.
+"Make us a double."
 <!-- AUTO:JOKE:END -->
 
 ---
