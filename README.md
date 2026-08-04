@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.
+> ASCII silly question, get a silly ANSI.
 <!-- AUTO:JOKE:END -->
 
 ---
