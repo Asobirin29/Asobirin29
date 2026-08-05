@@ -125,7 +125,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> ASCII silly question, get a silly ANSI.
+> Eight bytes walk into a bar.
+The bartender asks, "Can I get you anything?"
+"Yeah," reply the bytes.
+"Make us a double."
 <!-- AUTO:JOKE:END -->
 
 ---
