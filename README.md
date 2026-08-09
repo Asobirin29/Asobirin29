@@ -125,12 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
+> Your momma is so fat, you need to switch to NTFS to store a picture of her.
 <!-- AUTO:JOKE:END -->
 
 ---
