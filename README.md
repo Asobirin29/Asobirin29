@@ -125,7 +125,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Your momma is so fat, you need to switch to NTFS to store a picture of her.
+> Eight bytes walk into a bar.
+The bartender asks, "Can I get you anything?"
+"Yeah," reply the bytes.
+"Make us a double."
 <!-- AUTO:JOKE:END -->
 
 ---
