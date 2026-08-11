@@ -125,10 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Eight bytes walk into a bar.
-The bartender asks, "Can I get you anything?"
-"Yeah," reply the bytes.
-"Make us a double."
+> Programming is 10% science, 20% ingenuity, and 70% getting the ingenuity to work with the science.
 <!-- AUTO:JOKE:END -->
 
 ---
