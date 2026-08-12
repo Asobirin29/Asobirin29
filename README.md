@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Programming is 10% science, 20% ingenuity, and 70% getting the ingenuity to work with the science.
+> There are only 10 kinds of people in this world: those who know binary and those who don't.
 <!-- AUTO:JOKE:END -->
 
 ---
