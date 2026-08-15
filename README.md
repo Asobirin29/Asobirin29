@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Debugging is like being the detective in a crime movie where you're also the murderer at the same time.
+> The generation of random numbers is too important to be left to chance.
 <!-- AUTO:JOKE:END -->
 
 ---
