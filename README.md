@@ -125,9 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Can I tell you a TCP joke?"
-"Please tell me a TCP joke."
-"OK, I'll tell you a TCP joke."
+> Your momma is so fat, you need to switch to NTFS to store a picture of her.
 <!-- AUTO:JOKE:END -->
 
 ---
