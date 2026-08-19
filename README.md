@@ -125,7 +125,11 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Java and C were telling jokes. It was C's turn, so he writes something on the wall, points to it and says "Do you get the reference?" But Java didn't.
+> Knock knock.
+Who's there?
+Recursion.
+Recursion who?
+Knock knock.
 <!-- AUTO:JOKE:END -->
 
 ---
