@@ -125,11 +125,11 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Knock knock.
-Who's there?
-Recursion.
-Recursion who?
-Knock knock.
+> Hey Girl,
+Roses are #ff0000,
+Violets are #0000ff,
+I use hex codes,
+But I'd use RGB for you.
 <!-- AUTO:JOKE:END -->
 
 ---
