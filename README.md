@@ -125,10 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Eight bytes walk into a bar.
-The bartender asks, "Can I get you anything?"
-"Yeah," reply the bytes.
-"Make us a double."
+> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
 <!-- AUTO:JOKE:END -->
 
 ---
