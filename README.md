@@ -125,7 +125,12 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
+> "Knock, knock."
+"Who's there?"
+
+[very long pause]
+
+"Java."
 <!-- AUTO:JOKE:END -->
 
 ---
