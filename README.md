@@ -125,12 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
+> There are only 10 kinds of people in this world: those who know binary and those who don't.
 <!-- AUTO:JOKE:END -->
 
 ---
