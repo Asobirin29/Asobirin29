@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> There are only 10 kinds of people in this world: those who know binary and those who don't.
+> "We messed up the keming again guys."
 <!-- AUTO:JOKE:END -->
 
 ---
