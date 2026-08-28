@@ -124,7 +124,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning.
+> Your mama's so FAT she can't save files bigger than 4GB.
 <!-- AUTO:JOKE:END -->
 
 ---
