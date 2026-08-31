@@ -122,7 +122,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> I've got a really good UDP joke to tell you but I don’t know if you'll get it.
+> Eight bytes walk into a bar.
+The bartender asks, "Can I get you anything?"
+"Yeah," reply the bytes.
+"Make us a double."
 <!-- AUTO:JOKE:END -->
 
 ---
