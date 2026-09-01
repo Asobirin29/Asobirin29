@@ -122,10 +122,13 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Eight bytes walk into a bar.
-The bartender asks, "Can I get you anything?"
-"Yeah," reply the bytes.
-"Make us a double."
+> The six stages of debugging:
+1. That can't happen.
+2. That doesn't happen on my machine.
+3. That shouldn't happen.
+4. Why does that happen?
+5. Oh, I see.
+6. How did that ever work?
 <!-- AUTO:JOKE:END -->
 
 ---
