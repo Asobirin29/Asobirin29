@@ -122,11 +122,8 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> How do you tell HTML from HTML5?
-- Try it out in Internet Explorer
-- Did it work?
-- No?
-- It's HTML5.
+> A SQL statement walks into a bar and sees two tables.
+It approaches, and asks "may I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
