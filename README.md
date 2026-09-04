@@ -122,8 +122,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"
+> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
 <!-- AUTO:JOKE:END -->
 
 ---
