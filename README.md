@@ -122,7 +122,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
+> Two SQL tables sit at the bar. A query approaches and asks "Can I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
