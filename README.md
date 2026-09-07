@@ -121,7 +121,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> UDP is better in the COVID era since it avoids unnecessary handshakes.
+> Judge: "I sentence you to the maximum punishment..."
+Me (thinking): "Please be death, please be death..."
+Judge: "Learn Java!"
+Me: "Damn."
 <!-- AUTO:JOKE:END -->
 
 ---
