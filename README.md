@@ -121,10 +121,8 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Judge: "I sentence you to the maximum punishment..."
-Me (thinking): "Please be death, please be death..."
-Judge: "Learn Java!"
-Me: "Damn."
+> Have a great weekend!
+I hope your code behaves the same on Monday as it did on Friday.
 <!-- AUTO:JOKE:END -->
 
 ---
