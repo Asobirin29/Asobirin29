@@ -121,8 +121,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Have a great weekend!
-I hope your code behaves the same on Monday as it did on Friday.
+> I have a joke about Stack Overflow, but you would say it's a duplicate.
 <!-- AUTO:JOKE:END -->
 
 ---
