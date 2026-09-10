@@ -121,7 +121,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> I have a joke about Stack Overflow, but you would say it's a duplicate.
+> "We messed up the keming again guys."
 <!-- AUTO:JOKE:END -->
 
 ---
