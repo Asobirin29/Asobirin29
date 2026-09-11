@@ -121,7 +121,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "We messed up the keming again guys."
+> Two SQL tables sit at the bar. A query approaches and asks "Can I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
