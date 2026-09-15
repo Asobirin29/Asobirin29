@@ -120,7 +120,8 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Programming is 10% science, 20% ingenuity, and 70% getting the ingenuity to work with the science.
+> Have a great weekend!
+I hope your code behaves the same on Monday as it did on Friday.
 <!-- AUTO:JOKE:END -->
 
 ---
