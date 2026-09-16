@@ -120,8 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Have a great weekend!
-I hope your code behaves the same on Monday as it did on Friday.
+> The generation of random numbers is too important to be left to chance.
 <!-- AUTO:JOKE:END -->
 
 ---
