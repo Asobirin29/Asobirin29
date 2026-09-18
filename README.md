@@ -120,7 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Debugging: Removing the needles from the haystack.
+> If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.
 <!-- AUTO:JOKE:END -->
 
 ---
