@@ -120,7 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.
+> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
 <!-- AUTO:JOKE:END -->
 
 ---
