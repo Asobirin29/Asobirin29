@@ -120,7 +120,10 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
+> Judge: "I sentence you to the maximum punishment..."
+Me (thinking): "Please be death, please be death..."
+Judge: "Learn Java!"
+Me: "Damn."
 <!-- AUTO:JOKE:END -->
 
 ---
