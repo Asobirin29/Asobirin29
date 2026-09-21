@@ -120,10 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Judge: "I sentence you to the maximum punishment..."
-Me (thinking): "Please be death, please be death..."
-Judge: "Learn Java!"
-Me: "Damn."
+> Algorithm: A word used by programmers when they don't want to explain how their code works.
 <!-- AUTO:JOKE:END -->
 
 ---
