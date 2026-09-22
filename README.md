@@ -120,7 +120,8 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Algorithm: A word used by programmers when they don't want to explain how their code works.
+> A SQL statement walks into a bar and sees two tables.
+It approaches, and asks "may I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
