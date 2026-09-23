@@ -120,8 +120,10 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"
+> "Honey, go to the store and buy some eggs."
+"OK."
+"Oh and while you're there, get some milk."
+He never returned.
 <!-- AUTO:JOKE:END -->
 
 ---
