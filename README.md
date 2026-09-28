@@ -120,11 +120,8 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Knock knock.
-Who's there?
-Recursion.
-Recursion who?
-Knock knock.
+> A SQL statement walks into a bar and sees two tables.
+It approaches, and asks "may I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
