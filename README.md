@@ -120,8 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"
+> "We messed up the keming again guys."
 <!-- AUTO:JOKE:END -->
 
 ---
