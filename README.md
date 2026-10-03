@@ -120,9 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A guy walks into a bar and asks for 1.4 root beers.
-The bartender says "I'll have to charge you extra, that's a root beer float".
-The guy says "In that case, better make it a double."
+> I've got a really good UDP joke to tell you but I don’t know if you'll get it.
 <!-- AUTO:JOKE:END -->
 
 ---
