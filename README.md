@@ -120,7 +120,7 @@ _No recent public activity was found._
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> I've got a really good UDP joke to tell you but I don’t know if you'll get it.
+> Java and C were telling jokes. It was C's turn, so he writes something on the wall, points to it and says "Do you get the reference?" But Java didn't.
 <!-- AUTO:JOKE:END -->
 
 ---
