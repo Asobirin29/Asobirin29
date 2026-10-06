@@ -120,10 +120,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Judge: "I sentence you to the maximum punishment..."
-Me (thinking): "Please be death, please be death..."
-Judge: "Learn Java!"
-Me: "Damn."
+> Your momma is so fat, you need to switch to NTFS to store a picture of her.
 <!-- AUTO:JOKE:END -->
 
 ---
