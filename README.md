@@ -120,11 +120,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> How do you tell HTML from HTML5?
-- Try it out in Internet Explorer
-- Did it work?
-- No?
-- It's HTML5.
+> Debugging is like being the detective in a crime movie where you're also the murderer at the same time.
 <!-- AUTO:JOKE:END -->
 
 ---
