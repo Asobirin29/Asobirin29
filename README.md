@@ -120,7 +120,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Today I learned that changing random stuff until your program works is "hacky" and a "bad coding practice" but if you do it fast enough it's "Machine Learning" and pays 4x your current salary.
+> ASCII silly question, get a silly ANSI.
 <!-- AUTO:JOKE:END -->
 
 ---
