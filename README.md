@@ -125,7 +125,9 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> There are only 10 kinds of people in this world: those who know binary and those who don't.
+> "Can I tell you a TCP joke?"
+"Please tell me a TCP joke."
+"OK, I'll tell you a TCP joke."
 <!-- AUTO:JOKE:END -->
 
 ---
