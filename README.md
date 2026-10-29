@@ -125,9 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Can I tell you a TCP joke?"
-"Please tell me a TCP joke."
-"OK, I'll tell you a TCP joke."
+> I'd tell you a joke about NAT but I would have to translate.
 <!-- AUTO:JOKE:END -->
 
 ---
