@@ -125,7 +125,8 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> I'd tell you a joke about NAT but I would have to translate.
+> Have a great weekend!
+I hope your code behaves the same on Monday as it did on Friday.
 <!-- AUTO:JOKE:END -->
 
 ---
