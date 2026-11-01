@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.
+> Debugging is like being the detective in a crime movie where you're also the murderer at the same time.
 <!-- AUTO:JOKE:END -->
 
 ---
