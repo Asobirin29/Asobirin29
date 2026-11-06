@@ -125,11 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Knock knock.
-Who's there?
-Recursion.
-Recursion who?
-Knock knock.
+> UDP is better in the COVID era since it avoids unnecessary handshakes.
 <!-- AUTO:JOKE:END -->
 
 ---
