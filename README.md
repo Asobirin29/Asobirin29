@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> UDP is better in the COVID era since it avoids unnecessary handshakes.
+> The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.
 <!-- AUTO:JOKE:END -->
 
 ---
