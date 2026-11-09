@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Algorithm: A word used by programmers when they don't want to explain how their code works.
+> The generation of random numbers is too important to be left to chance.
 <!-- AUTO:JOKE:END -->
 
 ---
