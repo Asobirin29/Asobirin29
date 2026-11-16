@@ -125,7 +125,10 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> I've got a really good UDP joke to tell you but I don’t know if you'll get it.
+> A byte walks into a bar looking miserable.
+The bartender asks it: "What's wrong buddy?"
+"Parity error." it replies. 
+"Ah that makes sense, I thought you looked a bit off."
 <!-- AUTO:JOKE:END -->
 
 ---
