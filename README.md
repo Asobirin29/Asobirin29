@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning.
+> "We messed up the keming again guys."
 <!-- AUTO:JOKE:END -->
 
 ---
