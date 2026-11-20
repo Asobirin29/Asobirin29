@@ -125,7 +125,12 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "We messed up the keming again guys."
+> "Knock, knock."
+"Who's there?"
+
+[very long pause]
+
+"Java."
 <!-- AUTO:JOKE:END -->
 
 ---
