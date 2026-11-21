@@ -125,12 +125,8 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
+> A SQL statement walks into a bar and sees two tables.
+It approaches, and asks "may I join you?"
 <!-- AUTO:JOKE:END -->
 
 ---
