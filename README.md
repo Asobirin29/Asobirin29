@@ -125,8 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"
+> Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning.
 <!-- AUTO:JOKE:END -->
 
 ---
