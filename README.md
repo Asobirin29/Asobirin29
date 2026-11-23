@@ -125,7 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning.
+> The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.
 <!-- AUTO:JOKE:END -->
 
 ---
