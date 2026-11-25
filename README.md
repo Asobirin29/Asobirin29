@@ -125,8 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> A SQL statement walks into a bar and sees two tables.
-It approaches, and asks "may I join you?"
+> Debugging is like being the detective in a crime movie where you're also the murderer at the same time.
 <!-- AUTO:JOKE:END -->
 
 ---
