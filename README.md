@@ -125,9 +125,7 @@
 ## Daily Developer Joke
 
 <!-- AUTO:JOKE:START -->
-> "Can I tell you a TCP joke?"
-"Please tell me a TCP joke."
-"OK, I'll tell you a TCP joke."
+> ASCII silly question, get a silly ANSI.
 <!-- AUTO:JOKE:END -->
 
 ---
